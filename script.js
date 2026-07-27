@@ -6,6 +6,117 @@ const tabLuizabeth = document.getElementById('tab-luizabeth');
 const googleView = document.getElementById('google-view');
 const portfolioView = document.getElementById('portfolio-view');
 
+// --- Lista de flores para alternar ---
+const flowerImages = [
+    '+jfhjs-removebg-preview.png',
+    '88-removebg-preview.png',
+    'hghg-removebg-preview.png',
+    'hh-removebg-preview.png',
+    'yyy-removebg-preview.png'
+];
+
+// Lógica para alternar las imágenes de las flores cada 6 segundos de forma suave
+function initFlowerSlideshow(containerId, startIdx) {
+    let currentIdx = startIdx;
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const img1 = container.querySelector('.flower-img-1');
+    const img2 = container.querySelector('.flower-img-2');
+    let isImg1Active = true;
+
+    img1.src = flowerImages[currentIdx];
+
+    setInterval(() => {
+        currentIdx = (currentIdx + 1) % flowerImages.length;
+
+        if (isImg1Active) {
+            img2.src = flowerImages[currentIdx];
+            img2.classList.add('active');
+            img1.classList.remove('active');
+        } else {
+            img1.src = flowerImages[currentIdx];
+            img1.classList.add('active');
+            img2.classList.remove('active');
+        }
+
+        isImg1Active = !isImg1Active;
+    }, 6000);
+}
+
+// Iniciar las transiciones de las flores
+initFlowerSlideshow('flower-left-container', 0); // Empieza en Img 1
+initFlowerSlideshow('flower-right-container', 1); // Empieza en Img 2
+
+// --- Sintetizador de sonido de teclado mecánico (Web Audio API) ---
+let audioCtx = null;
+
+function playKeyboardSound() {
+    try {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+
+        const now = audioCtx.currentTime;
+
+        const bufferSize = audioCtx.sampleRate * 0.015;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+        }
+
+        const noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = buffer;
+
+        const bandpass = audioCtx.createBiquadFilter();
+        bandpass.type = 'bandpass';
+        bandpass.frequency.value = 2200 + Math.random() * 600;
+        bandpass.Q.value = 2.5;
+
+        const noiseGain = audioCtx.createGain();
+        noiseGain.gain.setValueAtTime(0.12, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
+
+        noiseSource.connect(bandpass);
+        bandpass.connect(noiseGain);
+        noiseGain.connect(audioCtx.destination);
+
+        noiseSource.start(now);
+
+        const osc = audioCtx.createOscillator();
+        const oscGain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(140 + Math.random() * 30, now);
+        osc.frequency.exponentialRampToValueAtTime(30, now + 0.02);
+
+        oscGain.gain.setValueAtTime(0.18, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+
+        osc.connect(oscGain);
+        oscGain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.025);
+    } catch (e) {
+        // Silenciar en caso de restricción de autoplay
+    }
+}
+
+// Emitir sonido al teclear
+[searchInput, urlInput].forEach(input => {
+    if (input) {
+        input.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && !e.ctrlKey && !e.altKey) {
+                playKeyboardSound();
+            }
+        });
+    }
+});
+
 function switchTab(view) {
     if (view === 'google') {
         tabGoogle.className = "tab-item tab-active";
@@ -41,16 +152,18 @@ function performSearch(query) {
     }, 1200);
 }
 
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && searchInput.value) {
-        performSearch(searchInput.value);
-    }
-});
+if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && searchInput.value) {
+            performSearch(searchInput.value);
+        }
+    });
+}
 
-// Micrófono — compatible con todos los navegadores modernos
+// Búsqueda por voz
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-if (SpeechRecognition) {
+if (SpeechRecognition && voiceBtn) {
     const recognition = new SpeechRecognition();
     recognition.lang = 'es-VE';
     recognition.continuous = false;
@@ -67,7 +180,7 @@ if (SpeechRecognition) {
         try {
             recognition.start();
         } catch (e) {
-            // Ya estaba corriendo, ignorar
+            // Ignorar si ya está iniciado
         }
     });
 
@@ -87,8 +200,6 @@ if (SpeechRecognition) {
         console.warn("Error de reconocimiento de voz:", e.error);
         if (e.error === 'not-allowed') {
             alert("Permiso de micrófono denegado. Actívalo en la configuración del navegador.");
-        } else if (e.error === 'no-speech') {
-            // No se detectó voz, simplemente ignorar
         }
     };
 
@@ -97,8 +208,7 @@ if (SpeechRecognition) {
         voiceBtn.style.backgroundColor = "transparent";
         voiceBtn.title = "Buscar por voz";
     };
-} else {
-    // Navegadores sin soporte (Firefox sin flags, Safari < 14.1, etc.)
+} else if (voiceBtn) {
     voiceBtn.title = "Tu navegador no soporta búsqueda por voz";
     voiceBtn.style.opacity = "0.4";
     voiceBtn.style.cursor = "not-allowed";

@@ -7,15 +7,16 @@
       name="description"
       content="Portafolio profesional de Luizabeth Contreras: diseño, desarrollo web y proyectos interactivos."
     />
-    <link rel="icon" type="image/svg+xml" href="Pixel_art_illustration_Folder_Icon__Pixelated_Folder._Folder_office_icon_landmark_icon_pixelated_for_the_pixel_art_game_and_icon_for_website_and_video_game-removebg-preview 1.png" />
     <meta property="og:title" content="Portafolio Interactivo | Luizabeth Contreras" />
     <meta
       property="og:description"
       content="Diseño y desarrollo web con proyectos creativos e interactivos."
     />
     <title>Portafolio Interactivo | Luizabeth Contreras</title>
+    <link rel="icon" type="image/svg+xml" href="Pixel_art_illustration_Folder_Icon__Pixelated_Folder._Folder_office_icon_landmark_icon_pixelated_for_the_pixel_art_game_and_icon_for_website_and_video_game-removebg-preview 1.png" />
     <style>
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=League+Spartan:wght@600;700;800&display=swap");
+
 
 :root {
   color: #e8e1c9;
@@ -53,9 +54,10 @@
   background-color: #124330;
   background-image:
     linear-gradient(rgba(5, 36, 26, 0.43), rgba(5, 31, 23, 0.58)),
-    radial-gradient(circle at 50% 46%, rgba(108, 194, 126, 0.2), transparent 43%);
-  background-position: center, center;
-  background-size: cover, auto;
+    radial-gradient(circle at 50% 46%, rgba(108, 194, 126, 0.2), transparent 43%),
+    url("green-grid-background.jpg");
+  background-position: center, center, center 49%;
+  background-size: cover, auto, cover;
 }
 
 .site-shell::after {
@@ -696,7 +698,8 @@
     transition-duration: 0.01ms !important;
   }
 }
-    </style>
+
+</style>
     <script type="importmap">
 {
   "imports": {
@@ -844,7 +847,7 @@
          <div id="content-wrapper" class="flex-1 flex flex-col relative">
           <div id="google-view" class="flex-1 flex flex-col items-center justify-center px-4 pb-24">
               
-              <!-- Título Luizabeth (flores eliminadas) -->
+              <!-- Título Luizabeth -->
               <div class="mb-7 relative inline-block">
                   <span class="text-7xl font-semibold tracking-tight brand-gradient relative z-10">Luizabeth</span>
               </div>
@@ -978,6 +981,7 @@ input {
     padding-inline: 7px;
   }
 }
+
 </script>
 <script type="text/plain" id="embedded-search-script">
 (() => {
@@ -1014,6 +1018,7 @@ input {
 
   input?.focus();
 })();
+
 </script>
     <script type="module">
 import * as THREE from "three";
@@ -1115,6 +1120,7 @@ function addMesh(geometry, material, position, parent = computer) {
   return mesh;
 }
 
+// Caja, bisel, vidrio y controles de la pantalla CRT.
 addMesh(new RoundedBoxGeometry(4.3, 3.9, 2.25, 8, 0.16), cream, [0, 2.65, 0]);
 addMesh(new RoundedBoxGeometry(3.85, 3.16, 0.19, 6, 0.1), creamDark, [0, 2.85, 1.18]);
 addMesh(new RoundedBoxGeometry(3.35, 2.62, 0.2, 8, 0.18), dark, [0, 2.9, 1.32]);
@@ -1135,6 +1141,7 @@ for (let index = 0; index < screenVertices.count; index += 1) {
 screenGeometry.computeVertexNormals();
 addMesh(screenGeometry, screenMaterial, [0, 2.9, 1.445]);
 
+// Esta página HTML es la superficie viva del monitor 3D.
 const screenSurface = document.createElement("div");
 screenSurface.className = "screen-html-surface";
 screenSurface.style.width = "720px";
@@ -1173,6 +1180,7 @@ for (let index = 0; index < 7; index += 1) {
   );
 }
 
+// Teclado inclinado con teclas independientes y una barra espaciadora separada.
 const keyboard = new THREE.Group();
 keyboard.position.set(0.08, 0.13, 2.75);
 keyboard.rotation.x = -0.07;
@@ -1219,6 +1227,7 @@ spaceKey.userData.restY = spaceKey.position.y;
 spaceKey.userData.down = false;
 keyMeshes.set("Space", spaceKey);
 
+// Mouse y cable.
 const mouse = new THREE.Group();
 mouse.position.set(3.45, 0.36, 2.6);
 mouse.rotation.y = -0.18;
@@ -1473,6 +1482,7 @@ if (studioProject && "IntersectionObserver" in window) {
   );
   projectObserver.observe(studioProject);
 }
-    </script>
+
+</script>
   </body>
 </html>

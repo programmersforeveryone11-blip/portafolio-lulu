@@ -13,10 +13,8 @@
       content="Diseño y desarrollo web con proyectos creativos e interactivos."
     />
     <title>Portafolio Interactivo | Luizabeth Contreras</title>
-    <link rel="icon" type="image/svg+xml" href="Pixel_art_illustration_Folder_Icon__Pixelated_Folder._Folder_office_icon_landmark_icon_pixelated_for_the_pixel_art_game_and_icon_for_website_and_video_game-removebg-preview 1.png" />
     <style>
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=League+Spartan:wght@600;700;800&display=swap");
-
 
 :root {
   color: #e8e1c9;
@@ -54,10 +52,9 @@
   background-color: #124330;
   background-image:
     linear-gradient(rgba(5, 36, 26, 0.43), rgba(5, 31, 23, 0.58)),
-    radial-gradient(circle at 50% 46%, rgba(108, 194, 126, 0.2), transparent 43%),
-    url("green-grid-background.jpg");
-  background-position: center, center, center 49%;
-  background-size: cover, auto, cover;
+    radial-gradient(circle at 50% 46%, rgba(108, 194, 126, 0.2), transparent 43%);
+  background-position: center, center;
+  background-size: cover, auto;
 }
 
 .site-shell::after {
@@ -698,8 +695,7 @@
     transition-duration: 0.01ms !important;
   }
 }
-
-</style>
+    </style>
     <script type="importmap">
 {
   "imports": {
@@ -844,43 +840,35 @@
         </div>
 
         <!-- Vista principal -->
-        <div id="content-wrapper" class="flex-1 flex flex-col relative">
-            <div id="google-view" class="flex-1 flex flex-col items-center justify-center px-4 pb-24">
-                
-                <!-- Título Luizabeth con flores giratorias de fondo -->
-                <div class="mb-7 relative inline-block">
-                    <!-- Flor 1 (cerca de la L hacia arriba) -->
-                    <div id="flower-left-container" class="flower-spinner flower-left">
-                        <img class="flower-img flower-img-1 active" src="+jfhjs-removebg-preview.png" alt="Flor L">
-                        <img class="flower-img flower-img-2" src="" alt="Flor L">
-                    </div>
+         <div id="content-wrapper" class="flex-1 flex flex-col relative">
+          <div id="google-view" class="flex-1 flex flex-col items-center justify-center px-4 pb-24">
+              
+              <!-- Título Luizabeth (flores eliminadas) -->
+              <div class="mb-7 relative inline-block">
+                  <span class="text-7xl font-semibold tracking-tight brand-gradient relative z-10">Luizabeth</span>
+              </div>
 
-                    <!-- Flor 2 (cerca de la h hacia abajo) -->
-                    <div id="flower-right-container" class="flower-spinner flower-right">
-                        <img class="flower-img flower-img-1 active" src="88-removebg-preview.png" alt="Flor h">
-                        <img class="flower-img flower-img-2" src="" alt="Flor h">
-                    </div>
+              <div class="w-full max-w-[584px] search-container-style flex items-center bg-white border border-[#dfe1e5] h-[46px] rounded-full px-4 transition-all z-10">
+                  <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                  <input type="text" id="google-search-input" class="w-full h-full bg-transparent outline-none text-base" placeholder="Busca 'luizabeth'" autofocus>
+                  <button id="voice-btn" class="p-1 hover:bg-gray-100 rounded-full ml-2" title="Buscar por voz">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24">
+                          <path fill="#4285F4" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                          <path fill="#34A853" d="M12 17c2.76 0 5-2.24 5-5h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H5c0 2.76 2.24 5 5 5v3h2v-3z"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
 
-                    <span class="text-7xl font-semibold tracking-tight brand-gradient relative z-10">Luizabeth</span>
-                </div>
+          <div id="portfolio-view" class="hidden w-full h-full">
+              <iframe src="luizabeth.html" class="w-full h-full border-none"></iframe>
+          </div>
+      </div>
+  </div>
 
-                <div class="w-full max-w-[584px] search-container-style flex items-center bg-white border border-[#dfe1e5] h-[46px] rounded-full px-4 transition-all z-10">
-                    <svg class="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    <input type="text" id="google-search-input" class="w-full h-full bg-transparent outline-none text-base" placeholder="Busca 'luizabeth'" autofocus>
-                    <button id="voice-btn" class="p-1 hover:bg-gray-100 rounded-full ml-2" title="Buscar por voz">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24">
-                            <path fill="#4285F4" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                            <path fill="#34A853" d="M12 17c2.76 0 5-2.24 5-5h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H5c0 2.76 2.24 5 5 5v3h2v-3z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="search-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm">
-        Buscando: <span id="toast-term" class="font-bold text-sky-400"></span>...
-    </div>
+  <div id="search-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm">
+      Buscando: <span id="toast-term" class="font-bold text-sky-400"></span>...
+  </div>
 </template>
 <script type="text/plain" id="embedded-search-styles">
 * {
@@ -975,44 +963,6 @@ input {
   box-shadow: 0 1px 8px rgb(32 33 36 / 24%);
 }
 
-.flower-spinner {
-  position: absolute;
-  z-index: 0;
-  width: 78px;
-  height: 78px;
-  pointer-events: none;
-  animation: flower-turn 24s linear infinite;
-}
-
-.flower-left {
-  top: -26px;
-  left: -38px;
-}
-
-.flower-right {
-  right: -48px;
-  bottom: -12px;
-  animation-direction: reverse;
-}
-
-.flower-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.flower-img-2 {
-  display: none;
-}
-
-@keyframes flower-turn {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (max-width: 380px) {
   #google-view > div:first-child {
     margin-bottom: 18px;
@@ -1027,7 +977,6 @@ input {
     padding-inline: 7px;
   }
 }
-
 </script>
 <script type="text/plain" id="embedded-search-script">
 (() => {
@@ -1064,7 +1013,6 @@ input {
 
   input?.focus();
 })();
-
 </script>
     <script type="module">
 import * as THREE from "three";
@@ -1166,7 +1114,6 @@ function addMesh(geometry, material, position, parent = computer) {
   return mesh;
 }
 
-// Caja, bisel, vidrio y controles de la pantalla CRT.
 addMesh(new RoundedBoxGeometry(4.3, 3.9, 2.25, 8, 0.16), cream, [0, 2.65, 0]);
 addMesh(new RoundedBoxGeometry(3.85, 3.16, 0.19, 6, 0.1), creamDark, [0, 2.85, 1.18]);
 addMesh(new RoundedBoxGeometry(3.35, 2.62, 0.2, 8, 0.18), dark, [0, 2.9, 1.32]);
@@ -1187,7 +1134,6 @@ for (let index = 0; index < screenVertices.count; index += 1) {
 screenGeometry.computeVertexNormals();
 addMesh(screenGeometry, screenMaterial, [0, 2.9, 1.445]);
 
-// Esta página HTML es la superficie viva del monitor 3D.
 const screenSurface = document.createElement("div");
 screenSurface.className = "screen-html-surface";
 screenSurface.style.width = "720px";
@@ -1226,7 +1172,6 @@ for (let index = 0; index < 7; index += 1) {
   );
 }
 
-// Teclado inclinado con teclas independientes y una barra espaciadora separada.
 const keyboard = new THREE.Group();
 keyboard.position.set(0.08, 0.13, 2.75);
 keyboard.rotation.x = -0.07;
@@ -1273,7 +1218,6 @@ spaceKey.userData.restY = spaceKey.position.y;
 spaceKey.userData.down = false;
 keyMeshes.set("Space", spaceKey);
 
-// Mouse y cable.
 const mouse = new THREE.Group();
 mouse.position.set(3.45, 0.36, 2.6);
 mouse.rotation.y = -0.18;
@@ -1528,7 +1472,6 @@ if (studioProject && "IntersectionObserver" in window) {
   );
   projectObserver.observe(studioProject);
 }
-
-</script>
+    </script>
   </body>
 </html>

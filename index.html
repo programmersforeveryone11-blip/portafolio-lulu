@@ -1,18 +1,812 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="p:domain_verify" content="a395bc7e1b726263b85b5bd04ccf3e35"/>
-    <title>Nueva pestaña - Google Chrome</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="Ellie_Williams.png">
-</head>
-<body class="flex flex-col h-screen w-screen bg-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio profesional de Luizabeth Contreras: diseño, desarrollo web y proyectos interactivos."
+    />
+    <meta property="og:title" content="Portafolio Interactivo | Luizabeth Contreras" />
+    <meta
+      property="og:description"
+      content="Diseño y desarrollo web con proyectos creativos e interactivos."
+    />
+    <title>Portafolio Interactivo | Luizabeth Contreras</title>
+    <link rel="icon" type="image/svg+xml" href="Pixel_art_illustration_Folder_Icon__Pixelated_Folder._Folder_office_icon_landmark_icon_pixelated_for_the_pixel_art_game_and_icon_for_website_and_video_game-removebg-preview 1.png" />
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=League+Spartan:wght@600;700;800&display=swap");
 
-    <div class="flex-1 flex flex-col overflow-hidden bg-white">
+
+:root {
+  color: #e8e1c9;
+  background: #1b2723;
+  font-family: "DM Mono", monospace;
+  font-synthesis: none;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: #1b2723;
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.site-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: #124330;
+  background-image:
+    linear-gradient(rgba(5, 36, 26, 0.43), rgba(5, 31, 23, 0.58)),
+    radial-gradient(circle at 50% 46%, rgba(108, 194, 126, 0.2), transparent 43%),
+    url("green-grid-background.jpg");
+  background-position: center, center, center 49%;
+  background-size: cover, auto, cover;
+}
+
+.site-shell::after {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  content: "";
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.topbar,
+.footer {
+  position: absolute;
+  z-index: 20;
+  right: clamp(24px, 4vw, 68px);
+  left: clamp(24px, 4vw, 68px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+.topbar {
+  top: clamp(24px, 4.5vh, 48px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.brand-mark {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid rgba(232, 225, 201, 0.5);
+  border-radius: 50%;
+  font-family: "League Spartan", sans-serif;
+  font-size: 13px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #aaba9c;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 36px);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a9d36f;
+  box-shadow: 0 0 12px rgba(169, 211, 111, 0.65);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero-copy {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -58%);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: #9eb492;
+  font-size: clamp(8px, 0.75vw, 11px);
+  letter-spacing: 0.32em;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #ded6bc;
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(62px, 11vw, 176px);
+  font-weight: 800;
+  line-height: 0.72;
+  letter-spacing: -0.055em;
+}
+
+.hero h1 .headline-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero h1 .headline-line.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(222, 214, 188, 0.38);
+}
+
+.headline-cycle {
+  animation: headline-change 560ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.scene-wrap {
+  position: relative;
+  width: min(72vw, 980px);
+  min-width: 500px;
+  margin-top: 7vh;
+  aspect-ratio: 1.32;
+  display: grid;
+  place-items: center;
+}
+
+.webgl-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.webgl-stage:active {
+  cursor: grabbing;
+}
+
+.webgl-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.css3d-screen-layer {
+  overflow: visible !important;
+  pointer-events: none;
+}
+
+.screen-html-surface {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  backface-visibility: hidden;
+  pointer-events: auto;
+  box-shadow:
+    inset 0 0 18px rgba(13, 24, 15, 0.16),
+    0 0 8px rgba(220, 241, 209, 0.18);
+}
+
+.screen-html-surface::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 5px,
+    rgba(21, 35, 24, 0.035) 6px
+  );
+}
+
+.screen-html-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+  pointer-events: auto;
+  touch-action: auto;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid rgba(213, 223, 195, 0.12);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+}
+
+.orbit-one {
+  width: 90%;
+  aspect-ratio: 1;
+}
+
+.orbit-two {
+  width: 116%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  animation: orbit 40s linear infinite;
+}
+
+.side-label {
+  position: absolute;
+  top: 50%;
+  color: rgba(232, 225, 201, 0.45);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  writing-mode: vertical-rl;
+}
+
+.side-left {
+  left: clamp(16px, 2.3vw, 40px);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.side-right {
+  right: clamp(16px, 2.3vw, 40px);
+  transform: translateY(-50%);
+}
+
+.portfolio-note {
+  position: absolute;
+  z-index: 4;
+  top: clamp(76px, 11vh, 106px);
+  right: clamp(24px, 4vw, 68px);
+  width: min(230px, 24vw);
+  padding: 11px 13px 12px;
+  border-left: 1px solid rgba(232, 245, 222, 0.58);
+  color: rgba(243, 246, 221, 0.88);
+  background: rgba(8, 43, 31, 0.4);
+  font-size: 9px;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(8px);
+}
+
+.portfolio-note span {
+  color: #d3ecba;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.portfolio-note p {
+  margin: 5px 0 0;
+}
+
+.studio-project {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 82px);
+  width: min(1040px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 64px 0 132px;
+  border-top: 1px solid rgba(229, 239, 218, 0.22);
+  color: #ecf1d8;
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.studio-project.reveal-ready:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.studio-project-intro {
+  max-width: 360px;
+}
+
+.studio-project-kicker {
+  margin: 0 0 12px;
+  color: #c6e8ae;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.studio-project-intro h2 {
+  margin: 0;
+  color: #f1ebd4;
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 0.98;
+}
+
+.studio-project-intro > p:last-child {
+  max-width: 330px;
+  margin: 15px 0 0;
+  color: rgba(236, 241, 216, 0.78);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.studio-link-card {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 32px;
+  align-items: center;
+  gap: 18px;
+  min-height: 126px;
+  padding: 20px;
+  border: 1px solid rgba(242, 246, 225, 0.5);
+  border-radius: 18px;
+  color: #183b2b;
+  background: rgba(247, 249, 235, 0.94);
+  box-shadow: 0 18px 48px rgba(2, 22, 15, 0.2);
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.studio-link-card:hover,
+.studio-link-card:focus-visible {
+  transform: translateY(-4px);
+  background: #fffef5;
+  box-shadow: 0 24px 55px rgba(2, 22, 15, 0.3);
+}
+
+.studio-card-icon {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(25, 75, 48, 0.12);
+  border-radius: 15px;
+  background: #fff;
+}
+
+.studio-card-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+}
+
+.studio-card-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.studio-card-label {
+  color: #55745b;
+  font-size: 8px;
+  letter-spacing: 0.16em;
+}
+
+.studio-card-copy strong {
+  font-family: "League Spartan", sans-serif;
+  font-size: 23px;
+  line-height: 1.05;
+}
+
+.studio-card-copy > span:last-child {
+  color: #52685a;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.studio-card-copy > span:nth-last-child(2) {
+  color: #728375;
+  font-size: 9px;
+}
+
+.studio-card-arrow {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(24, 59, 43, 0.16);
+  border-radius: 50%;
+  color: #31583e;
+  font-size: 16px;
+}
+
+.footer {
+  bottom: clamp(20px, 3.5vh, 38px);
+  color: rgba(232, 225, 201, 0.55);
+}
+
+.footer-line {
+  width: min(42vw, 560px);
+  height: 1px;
+  background: rgba(232, 225, 201, 0.14);
+}
+
+.entry-hint {
+  position: fixed;
+  z-index: 20;
+  bottom: clamp(24px, 5vh, 56px);
+  left: 50%;
+  padding: 11px 17px;
+  border: 1px solid rgba(232, 225, 201, 0.2);
+  border-radius: 999px;
+  color: rgba(232, 225, 201, 0.82);
+  background: rgba(16, 24, 20, 0.76);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: opacity 280ms ease;
+}
+
+.return-button {
+  position: fixed;
+  z-index: 30;
+  top: 22px;
+  right: 24px;
+  padding: 11px 16px;
+  border: 1px solid rgba(232, 225, 201, 0.35);
+  border-radius: 999px;
+  color: #f4ecd4;
+  background: rgba(20, 29, 24, 0.88);
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.return-button:hover {
+  background: rgba(64, 82, 66, 0.95);
+}
+
+.portfolio-overlay {
+  position: fixed;
+  z-index: 25;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  border: 0;
+  background: #fff;
+  animation: portfolio-reveal 320ms ease both;
+}
+
+.portfolio-overlay[hidden] {
+  display: none !important;
+}
+
+.screen-expanded .scene-wrap {
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: auto;
+}
+
+.screen-expanded .webgl-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+.screen-expanded .orbit {
+  opacity: 0;
+}
+
+.screen-expanded .topbar,
+.screen-expanded .footer,
+.screen-expanded .hero-copy,
+.screen-expanded .portfolio-note,
+.screen-expanded .side-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.screen-expanded .entry-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.screen-expanded .studio-project {
+  display: none;
+}
+
+.return-button {
+  transition: background 180ms ease, opacity 280ms ease;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(348deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes headline-change {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes portfolio-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .portfolio-note {
+    top: 74px;
+    right: 24px;
+    width: min(190px, 48vw);
+    padding: 9px 10px;
+    font-size: 8px;
+  }
+
+  .studio-project {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    width: calc(100% - 36px);
+    padding: 44px 0 114px;
+  }
+
+  .studio-project-intro {
+    max-width: 420px;
+  }
+
+  .studio-project-intro h2 {
+    font-size: 36px;
+  }
+
+  .studio-project-intro > p:last-child {
+    max-width: 390px;
+    font-size: 11px;
+  }
+
+  .studio-link-card {
+    grid-template-columns: 58px minmax(0, 1fr) 28px;
+    gap: 12px;
+    min-height: 110px;
+    padding: 14px;
+  }
+
+  .studio-card-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+  }
+
+  .studio-card-copy strong {
+    font-size: 20px;
+  }
+
+  .scene-wrap {
+    width: 145vw;
+    min-width: 0;
+    margin-top: 13vh;
+  }
+
+  .hero-copy {
+    top: 38%;
+  }
+
+  .eyebrow {
+    margin-bottom: 13px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 14vw, 68px);
+    line-height: 0.78;
+  }
+
+  .side-label {
+    display: none;
+  }
+
+  .footer-line {
+    width: 25vw;
+  }
+
+  .return-button {
+    top: 14px;
+    right: 14px;
+    padding: 10px 13px;
+    font-size: 10px;
+  }
+
+  .screen-expanded .scene-wrap {
+    width: 100vw;
+    height: 100svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+  }
+}
+</script>
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="Volver al inicio del portafolio">
+          <span class="brand-mark" aria-hidden="true">L</span>
+          <span>PORTAFOLIO INTERACTIVO</span>
+        </a>
+        <div class="header-actions">
+          <div class="status" aria-label="Estado del sistema">
+            <span class="status-dot"></span>
+            WEBGL ONLINE
+          </div>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">PERSONAL COMPUTER · 1984</p>
+          <h1 id="hero-title" class="headline-cycle">
+            <span class="headline-line">PORTAFOLIO</span>
+            <span class="headline-line outline">INTERACTIVO</span>
+          </h1>
+        </div>
+
+        <div class="scene-wrap">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div
+            id="webgl-stage"
+            class="webgl-stage"
+            role="region"
+            aria-label="Computadora retro tridimensional interactiva"
+          ></div>
+        </div>
+
+        <aside class="portfolio-note">
+          <span>PORTAFOLIO PROFESIONAL</span>
+          <p>Diseño y desarrollo web con proyectos creativos e interactivos.</p>
+        </aside>
+        <div class="side-label side-left">REAL-TIME / WEBGL</div>
+        <div class="side-label side-right">DRAG / TYPE / ZOOM</div>
+      </section>
+
+      <section class="studio-project" aria-labelledby="studio-project-title">
+        <div class="studio-project-intro">
+          <p class="studio-project-kicker">MI ESTUDIO DE PROGRAMACIÓN</p>
+          <h2 id="studio-project-title">Luizabeth's Studios</h2>
+          <p>
+            Un estudio independiente donde creo páginas web y experiencias digitales para
+            personas y negocios.
+          </p>
+        </div>
+        <a
+          class="studio-link-card"
+          href="https://clientes-chi.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="studio-card-icon">
+            <img
+              src="https://clientes-chi.vercel.app/Borde_de_sticker-removebg-preview%201@2x.png"
+              alt="Icono de Luizabeth's Studios"
+              loading="lazy"
+            />
+          </span>
+          <span class="studio-card-copy">
+            <span class="studio-card-label">PROYECTO DEL ESTUDIO</span>
+            <strong>Luizabeth's.studios</strong>
+            <span>clientes-chi.vercel.app</span>
+            <span>Visita el sitio de mi estudio de programación.</span>
+          </span>
+          <span class="studio-card-arrow" aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <div id="entry-hint" class="entry-hint">
+        EN LA PANTALLA: ESCRIBE «LUIZABETH» Y PULSA INTRO
+      </div>
+      <button id="return-button" class="return-button" type="button" hidden>
+        ← Volver a la computadora
+      </button>
+
+      <footer class="footer">
+        <span>GEOMETRY: LIVE</span>
+        <span class="footer-line" aria-hidden="true"></span>
+        <span>© 2026</span>
+      </footer>
+    </main>
+
+    <iframe
+      id="portfolio-overlay"
+      class="portfolio-overlay"
+      title="Portafolio profesional de Luizabeth Contreras"
+      hidden
+    ></iframe>
+
+    <template id="embedded-search-page" data-body-class="flex flex-col h-screen w-screen bg-white">
+<div class="flex-1 flex flex-col overflow-hidden bg-white">
 
         <!-- Encabezado Chrome -->
         <div class="chrome-header pt-2 px-2 flex flex-col border-b border-gray-300 shrink-0">
@@ -81,17 +875,660 @@
                     </button>
                 </div>
             </div>
-
-            <div id="portfolio-view" class="hidden w-full h-full">
-                <iframe src="luizabeth.html" class="w-full h-full border-none"></iframe>
-            </div>
         </div>
     </div>
 
     <div id="search-toast" class="hidden fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm">
         Buscando: <span id="toast-term" class="font-bold text-sky-400"></span>...
     </div>
+</template>
+<script type="text/plain" id="embedded-search-styles">
+* {
+  box-sizing: border-box;
+}
 
-    <script src="script.js"></script>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  color: #202124;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.chrome-header {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 1px 1px rgb(60 64 67 / 12%);
+}
+
+.tab-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 31px;
+  min-width: 138px;
+  padding: 0 12px;
+  overflow: hidden;
+  border-radius: 9px 9px 0 0;
+  color: #5f6368;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab-active {
+  background: #fff;
+  color: #3c4043;
+  box-shadow: 0 -1px 0 #dadce0, 1px 0 0 #dadce0, -1px 0 0 #dadce0;
+}
+
+.tab-inactive {
+  background: #f1f3f4;
+}
+
+.chrome-address-bar {
+  border: 1px solid transparent;
+  background: #f1f3f4;
+}
+
+.chrome-address-bar:focus-within {
+  border-color: #d2e3fc;
+  background: #fff;
+}
+
+.brand-gradient {
+  background: linear-gradient(
+    90deg,
+    #4285f4 0%,
+    #ea4335 22%,
+    #fbbc05 43%,
+    #4285f4 63%,
+    #34a853 81%,
+    #ea4335 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.search-container-style {
+  border-color: #dfe1e5;
+  box-shadow: 0 1px 6px rgb(32 33 36 / 14%);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.search-container-style:hover,
+.search-container-style:focus-within {
+  border-color: transparent;
+  box-shadow: 0 1px 8px rgb(32 33 36 / 24%);
+}
+
+.flower-spinner {
+  position: absolute;
+  z-index: 0;
+  width: 78px;
+  height: 78px;
+  pointer-events: none;
+  animation: flower-turn 24s linear infinite;
+}
+
+.flower-left {
+  top: -26px;
+  left: -38px;
+}
+
+.flower-right {
+  right: -48px;
+  bottom: -12px;
+  animation-direction: reverse;
+}
+
+.flower-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flower-img-2 {
+  display: none;
+}
+
+@keyframes flower-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 380px) {
+  #google-view > div:first-child {
+    margin-bottom: 18px;
+  }
+
+  #google-view .text-7xl {
+    font-size: 3.2rem;
+  }
+
+  .tab-item {
+    min-width: 116px;
+    padding-inline: 7px;
+  }
+}
+
+</script>
+<script type="text/plain" id="embedded-search-script">
+(() => {
+  const input = document.getElementById('google-search-input');
+  const toast = document.getElementById('search-toast');
+  const toastTerm = document.getElementById('toast-term');
+
+  const navigateToLuizabeth = (query) => {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) return;
+
+    if (toastTerm) toastTerm.textContent = query.trim();
+    toast?.classList.remove('hidden');
+
+    if (normalized === 'luizabeth') {
+      window.parent.postMessage(
+        { type: 'luizabeth-screen-search', query: normalized },
+        '*',
+      );
+    }
+  };
+
+  input?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter') return;
+    event.preventDefault();
+    navigateToLuizabeth(input.value);
+  });
+
+  window.switchTab = (tab) => {
+    if (tab === 'luizabeth') {
+      navigateToLuizabeth(input?.value || 'luizabeth');
+    }
+  };
+
+  input?.focus();
+})();
+
+</script>
+    <script type="module">
+import * as THREE from "three";
+import { CSS3DObject, CSS3DRenderer } from "three/addons/renderers/CSS3DRenderer.js";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+
+const stage = document.querySelector("#webgl-stage");
+const siteShell = document.querySelector(".site-shell");
+const entryHint = document.querySelector("#entry-hint");
+const returnButton = document.querySelector("#return-button");
+const portfolioOverlay = document.querySelector("#portfolio-overlay");
+const embeddedSearchPage = document.querySelector("#embedded-search-page");
+const embeddedSearchStyles = document.querySelector("#embedded-search-styles");
+const embeddedSearchScript = document.querySelector("#embedded-search-script");
+const headlines = [
+  ["PORTAFOLIO", "INTERACTIVO"],
+  ["LUIZABETH", "CONTRERAS"],
+  ["VIENDO MI", "PORTAFOLIO"],
+];
+
+if (
+  !stage ||
+  !siteShell ||
+  !entryHint ||
+  !returnButton ||
+  !portfolioOverlay ||
+  !embeddedSearchPage ||
+  !embeddedSearchStyles ||
+  !embeddedSearchScript
+) {
+  throw new Error("Falta un elemento requerido para iniciar la computadora.");
+}
+
+const searchPageMarkup = `<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="./screen/">
+  <title>Nueva pestaña - Google Chrome</title>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>${embeddedSearchStyles.textContent}</style>
+</head>
+<body class="${embeddedSearchPage.dataset.bodyClass}">
+  ${embeddedSearchPage.innerHTML}
+  <script>${embeddedSearchScript.textContent}<\/script>
 </body>
+</html>`;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+const homeCameraPosition = new THREE.Vector3(7.7, 5.7, 9.8);
+const homeLookAt = new THREE.Vector3(0, 1.45, 0.65);
+const cameraLookAt = homeLookAt.clone();
+camera.position.copy(homeCameraPosition);
+camera.lookAt(homeLookAt);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.domElement.style.position = "absolute";
+renderer.domElement.style.inset = "0";
+renderer.domElement.style.zIndex = "1";
+stage.appendChild(renderer.domElement);
+
+const cssRenderer = new CSS3DRenderer();
+cssRenderer.setSize(stage.clientWidth, stage.clientHeight);
+cssRenderer.domElement.className = "css3d-screen-layer";
+cssRenderer.domElement.style.position = "absolute";
+cssRenderer.domElement.style.inset = "0";
+cssRenderer.domElement.style.zIndex = "2";
+cssRenderer.domElement.style.pointerEvents = "none";
+cssRenderer.domElement.style.overflow = "visible";
+stage.appendChild(cssRenderer.domElement);
+
+const computer = new THREE.Group();
+computer.rotation.y = -0.15;
+scene.add(computer);
+
+const makeMaterial = (color, roughness = 0.7) =>
+  new THREE.MeshStandardMaterial({ color, roughness });
+const cream = makeMaterial(0xd8cfb5);
+const creamLight = makeMaterial(0xeee6ce, 0.62);
+const creamDark = makeMaterial(0xa79d84, 0.78);
+const dark = makeMaterial(0x292d28, 0.6);
+const keyMaterial = makeMaterial(0x3f413a, 0.72);
+
+function addMesh(geometry, material, position, parent = computer) {
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(...position);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  parent.add(mesh);
+  return mesh;
+}
+
+// Caja, bisel, vidrio y controles de la pantalla CRT.
+addMesh(new RoundedBoxGeometry(4.3, 3.9, 2.25, 8, 0.16), cream, [0, 2.65, 0]);
+addMesh(new RoundedBoxGeometry(3.85, 3.16, 0.19, 6, 0.1), creamDark, [0, 2.85, 1.18]);
+addMesh(new RoundedBoxGeometry(3.35, 2.62, 0.2, 8, 0.18), dark, [0, 2.9, 1.32]);
+
+const screenMaterial = new THREE.MeshStandardMaterial({
+  color: 0xe7eadf,
+  emissive: 0x2a3328,
+  emissiveIntensity: 0.24,
+  roughness: 0.32,
+});
+const screenGeometry = new THREE.PlaneGeometry(3.05, 2.32, 24, 18);
+const screenVertices = screenGeometry.attributes.position;
+for (let index = 0; index < screenVertices.count; index += 1) {
+  const x = screenVertices.getX(index) / 1.525;
+  const y = screenVertices.getY(index) / 1.16;
+  screenVertices.setZ(index, 0.1 * (1 - x * x) * (1 - y * y));
+}
+screenGeometry.computeVertexNormals();
+addMesh(screenGeometry, screenMaterial, [0, 2.9, 1.445]);
+
+// Esta página HTML es la superficie viva del monitor 3D.
+const screenSurface = document.createElement("div");
+screenSurface.className = "screen-html-surface";
+screenSurface.style.width = "720px";
+screenSurface.style.height = "560px";
+screenSurface.style.backfaceVisibility = "hidden";
+screenSurface.style.webkitBackfaceVisibility = "hidden";
+
+const screenFrame = document.createElement("iframe");
+screenFrame.className = "screen-html-frame";
+screenFrame.title = "Pantalla interactiva de Luizabeth";
+screenFrame.srcdoc = searchPageMarkup;
+screenFrame.width = "720";
+screenFrame.height = "560";
+screenFrame.setAttribute("allow", "fullscreen");
+screenFrame.style.pointerEvents = "auto";
+screenFrame.dataset.page = "search";
+screenSurface.appendChild(screenFrame);
+
+const screenObject = new CSS3DObject(screenSurface);
+screenObject.scale.set(3.05 / 720, 2.32 / 560, 1);
+screenObject.position.set(0, 2.9, 1.485);
+computer.add(screenObject);
+
+addMesh(new RoundedBoxGeometry(3.86, 0.3, 0.15, 4, 0.05), creamDark, [0, 1.12, 1.16]);
+const led = new THREE.MeshStandardMaterial({
+  color: 0xd85f3e,
+  emissive: 0xb3361f,
+  emissiveIntensity: 1.8,
+});
+addMesh(new THREE.SphereGeometry(0.07, 18, 18), led, [1.62, 1.14, 1.33]);
+for (let index = 0; index < 7; index += 1) {
+  addMesh(
+    new RoundedBoxGeometry(0.23, 0.035, 0.05, 2, 0.01),
+    dark,
+    [-1.45 + index * 0.34, 1.13, 1.34],
+  );
+}
+
+// Teclado inclinado con teclas independientes y una barra espaciadora separada.
+const keyboard = new THREE.Group();
+keyboard.position.set(0.08, 0.13, 2.75);
+keyboard.rotation.x = -0.07;
+computer.add(keyboard);
+addMesh(new RoundedBoxGeometry(5.15, 0.38, 2.05, 6, 0.12), cream, [0, 0, 0], keyboard);
+
+const keyMeshes = new Map();
+const keyRows = [
+  ["Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6", "Digit7", "Digit8", "Digit9", "Digit0", "Minus", "Backspace"],
+  ["KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", "BracketLeft", "Enter"],
+  ["KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK", "KeyL", "Semicolon", "Quote"],
+  ["KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "Comma", "Period", "Slash"],
+];
+
+keyRows.forEach((rowCodes, rowIndex) => {
+  const keyWidth = 0.31;
+  const gap = 0.075;
+  const rowWidth = rowCodes.length * keyWidth + (rowCodes.length - 1) * gap;
+
+  rowCodes.forEach((code, columnIndex) => {
+    const key = addMesh(
+      new RoundedBoxGeometry(keyWidth, 0.15, 0.29, 3, 0.035),
+      keyMaterial,
+      [
+        -rowWidth / 2 + keyWidth / 2 + columnIndex * (keyWidth + gap),
+        0.25,
+        -0.52 + rowIndex * 0.34,
+      ],
+      keyboard,
+    );
+    key.userData.restY = key.position.y;
+    key.userData.down = false;
+    keyMeshes.set(code, key);
+  });
+});
+
+const spaceKey = addMesh(
+  new RoundedBoxGeometry(2.35, 0.15, 0.29, 3, 0.035),
+  keyMaterial,
+  [0.15, 0.25, 0.84],
+  keyboard,
+);
+spaceKey.userData.restY = spaceKey.position.y;
+spaceKey.userData.down = false;
+keyMeshes.set("Space", spaceKey);
+
+// Mouse y cable.
+const mouse = new THREE.Group();
+mouse.position.set(3.45, 0.36, 2.6);
+mouse.rotation.y = -0.18;
+computer.add(mouse);
+const mouseBody = addMesh(new THREE.SphereGeometry(0.58, 32, 24), creamLight, [0, 0, 0], mouse);
+mouseBody.scale.set(0.82, 0.48, 1.15);
+addMesh(new RoundedBoxGeometry(0.08, 0.08, 0.6, 3, 0.025), creamDark, [0, 0.26, -0.24], mouse);
+const cable = new THREE.CatmullRomCurve3([
+  new THREE.Vector3(3.45, 0.42, 2.05),
+  new THREE.Vector3(4.3, 0.18, 1.55),
+  new THREE.Vector3(4.18, 0.3, 0.35),
+  new THREE.Vector3(2.2, 0.7, -0.2),
+]);
+addMesh(new THREE.TubeGeometry(cable, 48, 0.045, 8), dark, [0, 0, 0]);
+
+const ground = new THREE.Mesh(
+  new THREE.PlaneGeometry(30, 30),
+  new THREE.ShadowMaterial({ color: 0x07100c, opacity: 0.38 }),
+);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -0.12;
+ground.receiveShadow = true;
+scene.add(ground);
+
+scene.add(new THREE.HemisphereLight(0xdce9c6, 0x101914, 2.1));
+const keyLight = new THREE.DirectionalLight(0xfff2cc, 4.2);
+keyLight.position.set(-4, 8, 6);
+keyLight.castShadow = true;
+keyLight.shadow.mapSize.set(2048, 2048);
+Object.assign(keyLight.shadow.camera, { left: -8, right: 8, top: 8, bottom: -4 });
+scene.add(keyLight);
+const rimLight = new THREE.PointLight(0x80c77a, 18, 16, 2);
+rimLight.position.set(4.5, 3.5, -3);
+scene.add(rimLight);
+
+let view = "computer";
+let zoomed = false;
+let transitionTimer;
+
+function openPortfolio() {
+  if (view !== "computer") return;
+  view = "approaching";
+  zoomed = true;
+  siteShell.classList.add("screen-expanded");
+  entryHint.hidden = true;
+  portfolioOverlay.classList.remove("is-visible");
+  portfolioOverlay.hidden = true;
+  portfolioOverlay.src = "./luizabeth.html";
+  transitionTimer = window.setTimeout(() => {
+    view = "website";
+    returnButton.hidden = false;
+    portfolioOverlay.hidden = false;
+    requestAnimationFrame(() => {
+      portfolioOverlay.classList.add("is-visible");
+      portfolioOverlay.focus({ preventScroll: true });
+    });
+  }, 650);
+}
+
+function closePortfolio() {
+  window.clearTimeout(transitionTimer);
+  view = "computer";
+  zoomed = false;
+  screenFrame.dataset.page = "search";
+  screenFrame.srcdoc = searchPageMarkup;
+  portfolioOverlay.classList.remove("is-visible");
+  portfolioOverlay.hidden = true;
+  portfolioOverlay.src = "about:blank";
+  siteShell.classList.remove("screen-expanded");
+  entryHint.hidden = window.scrollY >= 80;
+  returnButton.hidden = true;
+}
+
+returnButton.addEventListener("click", closePortfolio);
+
+window.addEventListener("message", (event) => {
+  const allowedOrigin =
+    event.origin === window.location.origin ||
+    (window.location.protocol === "file:" && event.origin === "null");
+  if (!allowedOrigin || event.source !== screenFrame.contentWindow) return;
+  if (
+    event.data?.type === "luizabeth-screen-search" &&
+    typeof event.data.query === "string" &&
+    event.data.query.trim().toLowerCase() === "luizabeth"
+  ) {
+    openPortfolio();
+  }
+});
+
+let activeFrameWindow;
+function attachFrameKeyboard() {
+  activeFrameWindow?.removeEventListener("keydown", onKeyDown);
+  activeFrameWindow?.removeEventListener("keyup", onKeyUp);
+  activeFrameWindow = screenFrame.contentWindow;
+  activeFrameWindow?.addEventListener("keydown", onKeyDown);
+  activeFrameWindow?.addEventListener("keyup", onKeyUp);
+}
+
+function onKeyDown(event) {
+  if (event.key === "Escape" && zoomed) {
+    event.preventDefault();
+    closePortfolio();
+    return;
+  }
+  if (event.metaKey || event.ctrlKey || event.altKey) return;
+  const key = keyMeshes.get(event.code);
+  if (key) key.userData.down = true;
+}
+
+function onKeyUp(event) {
+  const key = keyMeshes.get(event.code);
+  if (key) key.userData.down = false;
+}
+
+screenFrame.addEventListener("load", attachFrameKeyboard);
+attachFrameKeyboard();
+window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keyup", onKeyUp);
+
+const rotation = new THREE.Vector2(-0.15, 0);
+const rotationTarget = new THREE.Vector2(-0.15, 0);
+let dragging = false;
+let previousX = 0;
+let previousY = 0;
+
+stage.addEventListener("pointerdown", (event) => {
+  if (zoomed) return;
+  dragging = true;
+  previousX = event.clientX;
+  previousY = event.clientY;
+  stage.setPointerCapture(event.pointerId);
+});
+
+stage.addEventListener("pointermove", (event) => {
+  if (!dragging || zoomed) return;
+  rotationTarget.x = THREE.MathUtils.clamp(
+    rotationTarget.x + (event.clientX - previousX) * 0.012,
+    -0.55,
+    0.25,
+  );
+  rotationTarget.y = THREE.MathUtils.clamp(
+    rotationTarget.y + (event.clientY - previousY) * 0.008,
+    -0.38,
+    0.38,
+  );
+  previousX = event.clientX;
+  previousY = event.clientY;
+});
+
+function stopDragging(event) {
+  dragging = false;
+  if (stage.hasPointerCapture(event.pointerId)) {
+    stage.releasePointerCapture(event.pointerId);
+  }
+}
+
+stage.addEventListener("pointerup", stopDragging);
+stage.addEventListener("pointercancel", stopDragging);
+stage.addEventListener(
+  "wheel",
+  (event) => {
+    if (zoomed) return;
+    event.preventDefault();
+    camera.fov = THREE.MathUtils.clamp(camera.fov + event.deltaY * 0.015, 22, 48);
+    camera.updateProjectionMatrix();
+  },
+  { passive: false },
+);
+
+function resizeScene() {
+  const width = stage.clientWidth;
+  const height = stage.clientHeight;
+  renderer.setSize(width, height);
+  cssRenderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
+
+const resizeObserver = new ResizeObserver(resizeScene);
+resizeObserver.observe(stage);
+resizeScene();
+
+const clock = new THREE.Clock();
+function animate() {
+  const elapsed = clock.getElapsedTime();
+  if (zoomed) rotationTarget.set(-0.15, 0);
+  rotation.lerp(rotationTarget, 0.1);
+  computer.rotation.y = rotation.x;
+  computer.rotation.x = rotation.y;
+  computer.position.y = Math.sin(elapsed * 0.9) * 0.045;
+  screenMaterial.emissiveIntensity = 0.39 + Math.sin(elapsed * 2.3) * 0.025;
+
+  keyMeshes.forEach((key) => {
+    const targetY = key.userData.restY - (key.userData.down ? 0.1 : 0);
+    key.position.y = THREE.MathUtils.lerp(key.position.y, targetY, 0.32);
+  });
+
+  computer.updateMatrixWorld(true);
+  if (zoomed) {
+    const screenCenter = computer.localToWorld(new THREE.Vector3(0, 2.9, 1.485));
+    const screenNormal = new THREE.Vector3(0, 0, 1)
+      .applyQuaternion(computer.quaternion)
+      .normalize();
+    const approachPosition = screenCenter.clone().addScaledVector(screenNormal, 4.1);
+    camera.position.lerp(approachPosition, 0.055);
+    cameraLookAt.lerp(screenCenter, 0.07);
+  } else {
+    camera.position.lerp(homeCameraPosition, 0.055);
+    cameraLookAt.lerp(homeLookAt, 0.055);
+  }
+
+  camera.lookAt(cameraLookAt);
+  renderer.render(scene, camera);
+  cssRenderer.render(scene, camera);
+  window.requestAnimationFrame(animate);
+}
+
+animate();
+
+function updateEntryHint() {
+  entryHint.hidden = zoomed || window.scrollY >= 80;
+}
+
+window.addEventListener("scroll", updateEntryHint, { passive: true });
+updateEntryHint();
+
+const headline = document.querySelector("#hero-title");
+if (headline && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let headlineIndex = 0;
+  window.setInterval(() => {
+    headlineIndex = (headlineIndex + 1) % headlines.length;
+    headline.innerHTML = `
+      <span class="headline-line">${headlines[headlineIndex][0]}</span>
+      <span class="headline-line outline">${headlines[headlineIndex][1]}</span>
+    `;
+    headline.classList.remove("headline-cycle");
+    void headline.offsetWidth;
+    headline.classList.add("headline-cycle");
+  }, 3200);
+}
+
+const studioProject = document.querySelector(".studio-project");
+if (studioProject && "IntersectionObserver" in window) {
+  studioProject.classList.add("reveal-ready");
+  const projectObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      projectObserver.disconnect();
+    },
+    { threshold: 0.18 },
+  );
+  projectObserver.observe(studioProject);
+}
+
+</script>
+  </body>
 </html>

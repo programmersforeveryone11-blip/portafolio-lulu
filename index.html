@@ -1922,84 +1922,70 @@ const dislikeCountLabel = document.querySelector("#dislike-count");
 const reactionStatus = document.querySelector("#reaction-status");
 /* =========================================================
    CONTADORES GLOBALES REALES
-   Visitas · Me gusta · No me gusta
-   Se guardan en un servidor, no en el navegador.
+   Visitas · Me gusta · No me gusta  (compartidos entre TODOS los dispositivos)
    ========================================================= */
 
-// Servicio de contadores gratis (sucesor de CountAPI).
+// Servicio gratis sin registro (sucesor de CountAPI).
 const COUNTER_API = "https://abacus.jasoncameron.dev";
-// ⚠️ CÁMBIALO por un nombre único tuyo (ej: "luizabeth-portfolio-2026").
-const COUNTER_NS = "luizabeth-portfolio-oficial";
-const VIEWS_COUNTER = "visitas";
-const LIKES_COUNTER = "me-gusta";
-const DISLIKES_COUNTER = "no-me-gusta";
+// ⚠️ CÁMBIALO por un nombre único tuyo. Si dos webs usan el mismo, comparten contadores.
+const COUNTER_NS = "luizabeth-portfolio-oficial-2026";
+const VIEWS_KEY = "visitas";
+const LIKES_KEY = "me-gusta";
+const DISLIKES_KEY = "no-me-gusta";
 
-const DEVICE_VISIT_KEY = "luizabeth-visita-registrada-v1";
-const DEVICE_REACTION_KEY = "luizabeth-reaccion-v1";
+// Flags POR DISPOSITIVO (esto es lo que hace que recargar no cuente doble).
+const VISITED_FLAG = "luizabeth-visited-v1";
+const REACTION_FLAG = "luizabeth-reaction-v1";
 
-function readLocalValue(key) {
-  try {
-    return window.localStorage.getItem(key);
-  } catch {
-    return null;
-  }
+function readLocal(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function saveLocal(key, value) {
+  try { localStorage.setItem(key, String(value)); return true; } catch { return false; }
 }
 
-function saveLocalValue(key, value) {
-  try {
-    window.localStorage.setItem(key, String(value));
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function counterUrl(action, key, amount) {
+async function counterFetch(action, key, amount) {
   const url = new URL(`${COUNTER_API}/${action}/${COUNTER_NS}/${key}`);
   if (Number.isFinite(amount)) url.searchParams.set("amount", String(amount));
-  return url.toString();
+  const res = await fetch(url.toString(), { cache: "no-store" });
+  if (res.status === 404) return 0;
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  const n = Number(data?.value);
+  return Number.isFinite(n) ? n : 0;
 }
+const readCounter = (key) => counterFetch("get", key);
+const incrCounter = (key, amount = 1) => counterFetch("hit", key, amount);
 
-async function counterRequest(action, key, amount) {
-  const response = await fetch(counterUrl(action, key, amount), {
-    cache: "no-store",
-    headers: { Accept: "application/json" },
-  });
-  if (response.status === 404) return 0; // contador aún no creado
-  if (!response.ok) throw new Error(`Contador "${key}" (${action}): ${response.status}`);
-  const payload = await response.json();
-  const value = Number(payload?.value);
-  return Number.isFinite(value) ? value : 0;
-}
-
-const readCounter = (key) => counterRequest("get", key);
-const changeCounter = (key, amount = 1) => counterRequest("hit", key, amount);
-
-/* ---------------- VISITAS ---------------- */
+/* ------------------- VISITAS (1 por dispositivo) ------------------- */
 
 async function registerVisit() {
-  const alreadyRegistered = readLocalValue(DEVICE_VISIT_KEY) === "yes";
+  const alreadyVisited = readLocal(VISITED_FLAG) === "yes";
+
+  // Si es la primera visita, marcamos el flag ANTES de llamar al servidor
+  // para que un fallo de red nunca cuente la visita dos veces en una recarga.
+  if (!alreadyVisited) saveLocal(VISITED_FLAG, "yes");
+
   try {
-    const total = alreadyRegistered
-      ? await readCounter(VIEWS_COUNTER)
-      : await changeCounter(VIEWS_COUNTER, 1);
-    saveLocalValue(DEVICE_VISIT_KEY, "yes");
-    return total;
+    const total = alreadyVisited
+      ? await readCounter(VIEWS_KEY)   // recarga → solo lee, no incrementa
+      : await incrCounter(VIEWS_KEY, 1); // primera vez → incrementa
+    return { total, isFirstVisit: !alreadyVisited };
   } catch (error) {
-    console.warn("No se pudo contactar el servidor de visitas.", error);
-    return null;
+    console.warn("No se pudo leer el contador de visitas.", error);
+    return { total: null, isFirstVisit: !alreadyVisited };
   }
 }
 
 function launchConfetti() {
   if (!confettiLayer) return;
-  const confettiColors = ["#c6e8ae", "#f3d47a", "#f1a7a0", "#d4c6ff", "#f1ebd4"];
-  for (let index = 0; index < 44; index += 1) {
+  const colors = ["#c6e8ae", "#f3d47a", "#f1a7a0", "#d4c6ff", "#f1ebd4"];
+  for (let i = 0; i < 44; i += 1) {
     const piece = document.createElement("span");
     piece.className = "confetti-piece";
     piece.style.setProperty("--confetti-x", `${Math.random() * 100}%`);
     piece.style.setProperty("--confetti-size", `${5 + Math.random() * 7}px`);
-    piece.style.setProperty("--confetti-color", confettiColors[index % confettiColors.length]);
+    piece.style.setProperty("--confetti-color", colors[i % colors.length]);
     piece.style.setProperty("--confetti-duration", `${2.7 + Math.random() * 1.6}s`);
     piece.style.setProperty("--confetti-delay", `${Math.random() * 0.7}s`);
     piece.style.setProperty("--confetti-drift", `${(Math.random() - 0.5) * 22}vw`);
@@ -2009,11 +1995,12 @@ function launchConfetti() {
   }
 }
 
-async function initialiseVisitNotice() {
+async function initWelcome() {
   if (!welcomeNotice || !visitorNumberLabel) return;
-  const alreadySeen = readLocalValue(DEVICE_VISIT_KEY) === "yes";
-  const total = await registerVisit();
-  if (alreadySeen) return; // la felicitación solo se muestra una vez por dispositivo
+  const { total, isFirstVisit } = await registerVisit();
+
+  // Solo mostramos la felicitación la PRIMERA vez en este dispositivo.
+  if (!isFirstVisit) return;
 
   visitorNumberLabel.textContent = total ? `#${total}` : "#—";
   welcomeNotice.hidden = false;
@@ -2023,13 +2010,12 @@ async function initialiseVisitNotice() {
 function closeWelcomeNotice() {
   if (welcomeNotice) welcomeNotice.hidden = true;
 }
-
 welcomeClose?.addEventListener("click", closeWelcomeNotice);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeWelcomeNotice();
 });
 
-/* ---------------- MÚSICA ---------------- */
+/* ------------------- MÚSICA ------------------- */
 
 function updateMusicButton() {
   if (!musicToggle || !backgroundMusic) return;
@@ -2040,20 +2026,16 @@ function updateMusicButton() {
     return;
   }
   musicToggle.disabled = false;
-  const isPlaying = !backgroundMusic.paused;
-  musicToggle.textContent = isPlaying ? "♫ PAUSAR MÚSICA" : "♫ ACTIVAR MÚSICA";
-  musicToggle.setAttribute("aria-pressed", String(isPlaying));
+  const playing = !backgroundMusic.paused;
+  musicToggle.textContent = playing ? "♫ PAUSAR MÚSICA" : "♫ ACTIVAR MÚSICA";
+  musicToggle.setAttribute("aria-pressed", String(playing));
 }
 
 musicToggle?.addEventListener("click", async () => {
   if (!backgroundMusic || activeReactionAudio) return;
   if (backgroundMusic.paused) {
-    try {
-      await backgroundMusic.play();
-    } catch {
-      musicToggle.textContent = "TOCA PARA ACTIVAR MÚSICA";
-      return;
-    }
+    try { await backgroundMusic.play(); }
+    catch { musicToggle.textContent = "TOCA PARA ACTIVAR MÚSICA"; return; }
   } else {
     backgroundMusic.pause();
   }
@@ -2074,119 +2056,131 @@ function playReactionSound(sound) {
   if (!sound) return;
   backgroundPlayingBeforeReaction =
     backgroundPlayingBeforeReaction || Boolean(backgroundMusic && !backgroundMusic.paused);
-  if (activeReactionAudio) {
-    activeReactionAudio.pause();
-    activeReactionAudio.currentTime = 0;
-  }
+  if (activeReactionAudio) { activeReactionAudio.pause(); activeReactionAudio.currentTime = 0; }
   backgroundMusic?.pause();
-  [likeSound, dislikeSound].forEach((otherSound) => {
-    if (otherSound && otherSound !== sound) {
-      otherSound.pause();
-      otherSound.currentTime = 0;
-    }
+  [likeSound, dislikeSound].forEach((s) => {
+    if (s && s !== sound) { s.pause(); s.currentTime = 0; }
   });
   activeReactionAudio = sound;
-  const finishReaction = () => {
+  const finish = () => {
     if (activeReactionAudio !== sound) return;
-    sound.removeEventListener("ended", finishReaction);
+    sound.removeEventListener("ended", finish);
     activeReactionAudio = null;
-    const shouldResumeBackground = backgroundPlayingBeforeReaction;
-    backgroundPlayingBeforeReaction = false;
-    if (shouldResumeBackground && backgroundMusic) {
+    if (backgroundPlayingBeforeReaction && backgroundMusic) {
       backgroundMusic.play().then(updateMusicButton).catch(updateMusicButton);
     } else {
       updateMusicButton();
     }
+    backgroundPlayingBeforeReaction = false;
   };
-  sound.addEventListener("ended", finishReaction, { once: true });
+  sound.addEventListener("ended", finish, { once: true });
   sound.currentTime = 0;
   updateMusicButton();
-  sound.play().catch(finishReaction);
+  sound.play().catch(finish);
 }
 
-/* ---------------- REACCIONES GLOBALES ---------------- */
+/* ------------------- REACCIONES GLOBALES ------------------- */
 
-let currentReaction = readLocalValue(DEVICE_REACTION_KEY) || "";
-const reactionCounts = { like: 0, dislike: 0 };
+let currentReaction = readLocal(REACTION_FLAG) || ""; // "" | "like" | "dislike"
+const counts = { like: 0, dislike: 0 };
 let reactionBusy = false;
 
-function setReactionStatus(text) {
+function setStatus(text) {
   if (reactionStatus) reactionStatus.textContent = text;
 }
 
-function renderReactionState() {
+function renderReactions() {
   if (!likeButton || !dislikeButton) return;
   likeButton.setAttribute("aria-pressed", String(currentReaction === "like"));
   dislikeButton.setAttribute("aria-pressed", String(currentReaction === "dislike"));
   likeButton.disabled = reactionBusy;
   dislikeButton.disabled = reactionBusy;
-  if (likeCountLabel) likeCountLabel.textContent = String(reactionCounts.like);
-  if (dislikeCountLabel) dislikeCountLabel.textContent = String(reactionCounts.dislike);
+  if (likeCountLabel) likeCountLabel.textContent = String(counts.like);
+  if (dislikeCountLabel) dislikeCountLabel.textContent = String(counts.dislike);
 }
 
-async function refreshReactionCounts() {
-  const [likes, dislikes] = await Promise.allSettled([
-    readCounter(LIKES_COUNTER),
-    readCounter(DISLIKES_COUNTER),
-  ]);
-  if (likes.status === "fulfilled") reactionCounts.like = likes.value;
-  if (dislikes.status === "fulfilled") reactionCounts.dislike = dislikes.value;
-  renderReactionState();
+async function refreshCounts() {
+  try {
+    const [likes, dislikes] = await Promise.all([
+      readCounter(LIKES_KEY).catch(() => counts.like),
+      readCounter(DISLIKES_KEY).catch(() => counts.dislike),
+    ]);
+    counts.like = likes;
+    counts.dislike = dislikes;
+  } finally {
+    renderReactions();
+  }
 }
 
 async function chooseReaction(reaction) {
-  if (reactionBusy || currentReaction === reaction) return;
+  if (reactionBusy) return;
+
+  // Si ya tienes esa reacción, no se vuelve a sumar (evita votos dobles al recargar).
+  if (currentReaction === reaction) {
+    setStatus(
+      reaction === "like"
+        ? "Tu reacción ya es ♡ Me gusta. Puedes cambiarla a ☹ No me gusta cuando quieras."
+        : "Tu reacción ya es ☹ No me gusta. Puedes cambiarla a ♡ Me gusta cuando quieras.",
+    );
+    return;
+  }
 
   reactionBusy = true;
-  renderReactionState();
-  setReactionStatus("Guardando tu reacción...");
+  renderReactions();
+  setStatus("Guardando tu reacción...");
 
   const previous = currentReaction;
+  const previousKey =
+    previous === "like" ? LIKES_KEY : previous === "dislike" ? DISLIKES_KEY : null;
+  const newKey = reaction === "like" ? LIKES_KEY : DISLIKES_KEY;
 
   try {
-    // Si ya había reacción, la quitamos del contador anterior.
-    if (previous) {
-      await changeCounter(previous === "like" ? LIKES_COUNTER : DISLIKES_COUNTER, -1);
+    // 1) Sumamos la nueva reacción (así nunca se pierde un voto).
+    await incrCounter(newKey, 1);
+    // 2) Restamos la anterior si existía y era distinta.
+    if (previousKey && previousKey !== newKey) {
+      try { await incrCounter(previousKey, -1); }
+      catch (e) { console.warn("No se pudo descontar la reacción anterior.", e); }
     }
-    // Sumamos la nueva reacción para TODOS los dispositivos.
-    await changeCounter(reaction === "like" ? LIKES_COUNTER : DISLIKES_COUNTER, 1);
 
     currentReaction = reaction;
-    saveLocalValue(DEVICE_REACTION_KEY, reaction);
+    saveLocal(REACTION_FLAG, reaction);
     playReactionSound(reaction === "like" ? likeSound : dislikeSound);
-    setReactionStatus(
+    setStatus(
       reaction === "like"
-        ? "¡Gracias por tu me gusta! Ya quedó guardado para todos los visitantes."
-        : "Gracias por tu opinión. Tu reacción quedó guardada para todos los visitantes.",
+        ? "¡Gracias por tu me gusta! Tu voto se sumó al contador de todos los visitantes."
+        : "Gracias por tu opinión. Tu voto se sumó al contador de todos los visitantes.",
     );
   } catch (error) {
     console.warn("No se pudo guardar la reacción.", error);
-    setReactionStatus("No se pudo guardar tu reacción. Revisa tu conexión e inténtalo otra vez.");
+    setStatus("No se pudo guardar tu reacción. Revisa tu conexión e inténtalo de nuevo.");
   } finally {
     reactionBusy = false;
-    await refreshReactionCounts();
+    await refreshCounts();
   }
 }
 
 likeButton?.addEventListener("click", () => chooseReaction("like"));
 dislikeButton?.addEventListener("click", () => chooseReaction("dislike"));
 
-// Sincroniza los números cuando el usuario vuelve a la pestaña.
+// Refresca los números al volver a la pestaña (por si otro dispositivo votó mientras).
 document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") refreshReactionCounts();
+  if (document.visibilityState === "visible") refreshCounts();
 });
 
-/* ---------------- ARRANQUE ---------------- */
+/* ------------------- ARRANQUE ------------------- */
 
-renderReactionState();
-refreshReactionCounts().then(() => {
-  setReactionStatus(
-    currentReaction
-      ? "Tu reacción ya está guardada y la ven todos los visitantes."
-      : "Tu reacción se suma al contador global de todos los visitantes.",
+renderReactions();
+refreshCounts().then(() => {
+  setStatus(
+    currentReaction === "like"
+      ? "Tu reacción actual es ♡ Me gusta. Puedes cambiarla a ☹ No me gusta."
+      : currentReaction === "dislike"
+        ? "Tu reacción actual es ☹ No me gusta. Puedes cambiarla a ♡ Me gusta."
+        : "Elige ♡ Me gusta o ☹ No me gusta. Tu voto se comparte con todos los visitantes.",
   );
 });
-initialiseVisitNotice();
+initWelcome();
 
 </script>
   </body>

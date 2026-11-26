@@ -32,6 +32,7 @@
 
   html {
     background: #1b2723;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -449,9 +450,301 @@
   font-size: 16px;
 }
 
+.scroll-cue {
+  position: fixed;
+  z-index: 22;
+  right: clamp(18px, 4vw, 58px);
+  bottom: clamp(20px, 4vh, 42px);
+  display: flex;
+  width: max-content;
+  max-width: calc(100% - 40px);
+  align-items: center;
+  gap: 14px;
+  padding: 12px 15px;
+  border: 1px solid rgba(232, 225, 201, 0.3);
+  border-radius: 999px;
+  color: rgba(232, 225, 201, 0.88);
+  background: rgba(16, 24, 20, 0.78);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-align: right;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  animation: scroll-cue-float 2.2s ease-in-out infinite;
+  transition: opacity 220ms ease, visibility 220ms ease, border-color 180ms ease;
+}
+
+.scroll-cue-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.scroll-cue-copy > span {
+  color: rgba(232, 225, 201, 0.88);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.scroll-cue time {
+  color: #c6e8ae;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.scroll-cue-arrow {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(232, 225, 201, 0.4);
+  border-radius: 50%;
+  color: #c6e8ae;
+  font-size: 19px;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible {
+  border-color: rgba(198, 232, 174, 0.76);
+}
+
+.scroll-cue:hover .scroll-cue-arrow,
+.scroll-cue:focus-visible .scroll-cue-arrow {
+  transform: translateY(3px);
+  background: rgba(232, 225, 201, 0.12);
+}
+
+.scroll-cue.is-hidden,
+.screen-expanded .scroll-cue {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation-play-state: paused;
+}
+
+.reaction-panel {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid rgba(242, 246, 225, 0.22);
+  border-radius: 18px;
+  background: rgba(8, 34, 25, 0.35);
+  text-align: center;
+}
+
+.reaction-title {
+  margin: 0;
+  color: #d3ecba;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.reaction-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.reaction-button {
+  display: inline-flex;
+  min-width: 148px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 17px;
+  border: 1px solid rgba(232, 225, 201, 0.36);
+  border-radius: 999px;
+  color: #f1ebd4;
+  background: rgba(14, 43, 31, 0.82);
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.reaction-button:hover:not(:disabled),
+.reaction-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: #c6e8ae;
+}
+
+.reaction-button[aria-pressed="true"] {
+  border-color: #c6e8ae;
+  color: #14251b;
+  background: #c6e8ae;
+}
+
+.reaction-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.reaction-count {
+  min-width: 1ch;
+  font-weight: 700;
+}
+
+.reaction-note,
+.reaction-status {
+  margin: 0;
+  color: rgba(236, 241, 216, 0.68);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.music-toggle {
+  padding: 9px 12px;
+  border: 1px solid rgba(232, 225, 201, 0.3);
+  border-radius: 999px;
+  color: #e8e1c9;
+  background: rgba(16, 24, 20, 0.56);
+  font: inherit;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.music-toggle:hover,
+.music-toggle:focus-visible {
+  border-color: #c6e8ae;
+  background: rgba(16, 24, 20, 0.82);
+}
+
+.welcome-notice {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow: hidden;
+  background: rgba(5, 18, 13, 0.4);
+  backdrop-filter: blur(2px);
+  animation: notice-fade-in 300ms ease both;
+}
+
+.welcome-notice[hidden] {
+  display: none !important;
+}
+
+.welcome-card {
+  position: relative;
+  z-index: 2;
+  width: min(780px, 100%);
+  padding: 12px;
+  color: #f1ebd4;
+  text-align: center;
+  animation: notice-pop-in 420ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+.welcome-close {
+  position: fixed;
+  z-index: 3;
+  top: 24px;
+  right: 24px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(232, 225, 201, 0.28);
+  border-radius: 50%;
+  color: #f1ebd4;
+  background: rgba(16, 24, 20, 0.3);
+  font: inherit;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.welcome-close:hover,
+.welcome-close:focus-visible {
+  background: rgba(232, 225, 201, 0.12);
+}
+
+.welcome-sparkle {
+  display: block;
+  margin-bottom: 20px;
+  color: #c6e8ae;
+  font-size: 40px;
+}
+
+.welcome-card h2 {
+  margin: 0;
+  color: #f1ebd4;
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(42px, 8vw, 72px);
+  line-height: 1.05;
+  text-shadow: 0 3px 28px rgba(0, 0, 0, 0.38);
+}
+
+.welcome-card p {
+  margin: 20px 0 10px;
+  color: rgba(236, 241, 216, 0.78);
+  font-size: clamp(16px, 2.5vw, 21px);
+  line-height: 1.6;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.welcome-visitor-number {
+  display: block;
+  color: #c6e8ae;
+  font-family: "League Spartan", sans-serif;
+  font-size: clamp(88px, 18vw, 144px);
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+.welcome-visitor-caption {
+  display: block;
+  margin-top: 14px;
+  color: rgba(236, 241, 216, 0.68);
+  font-size: clamp(10px, 1.5vw, 13px);
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.confetti-piece {
+  position: absolute;
+  z-index: 1;
+  top: -18px;
+  left: var(--confetti-x);
+  width: var(--confetti-size);
+  height: calc(var(--confetti-size) * 1.55);
+  border-radius: 2px;
+  background: var(--confetti-color);
+  pointer-events: none;
+  animation: confetti-fall var(--confetti-duration) cubic-bezier(0.2, 0.7, 0.35, 1) var(--confetti-delay) forwards;
+}
+
 .footer {
   bottom: clamp(20px, 3.5vh, 38px);
   color: rgba(232, 225, 201, 0.55);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.footer-contact a {
+  color: #d3ecba;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-decoration-color: rgba(211, 236, 186, 0.45);
+  text-underline-offset: 3px;
 }
 
 .footer-line {
@@ -594,6 +887,39 @@
   }
 }
 
+@keyframes scroll-cue-float {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes notice-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes notice-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translate3d(var(--confetti-drift), 110vh, 0) rotate(var(--confetti-rotation));
+    opacity: 0;
+  }
+}
+
 @media (max-width: 700px) {
   .topbar {
     align-items: flex-start;
@@ -601,6 +927,16 @@
 
   .status {
     display: none;
+  }
+
+  .header-actions {
+    justify-content: flex-end;
+    max-width: 65%;
+  }
+
+  .music-toggle {
+    max-width: 100%;
+    font-size: 7px;
   }
 
   .portfolio-note {
@@ -616,6 +952,16 @@
     gap: 23px;
     width: calc(100% - 36px);
     padding: 44px 0 114px;
+  }
+
+  .reaction-panel {
+    padding: 20px 14px;
+  }
+
+  .reaction-button {
+    min-width: min(138px, calc(50vw - 34px));
+    padding: 11px 12px;
+    font-size: 9px;
   }
 
   .studio-project-intro {
@@ -675,6 +1021,33 @@
     width: 25vw;
   }
 
+  .footer {
+    gap: 10px;
+    font-size: 8px;
+  }
+
+  .footer-contact {
+    max-width: 42vw;
+    overflow-wrap: anywhere;
+    font-size: 7px;
+  }
+
+  .scroll-cue {
+    right: 14px;
+    bottom: 16px;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .scroll-cue-copy > span {
+    font-size: 8px;
+  }
+
+  .welcome-close {
+    top: 16px;
+    right: 16px;
+  }
+
   .return-button {
     top: 14px;
     right: 14px;
@@ -717,6 +1090,9 @@
           <span>PORTAFOLIO INTERACTIVO</span>
         </a>
         <div class="header-actions">
+          <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false">
+            ♪ ACTIVAR MÚSICA
+          </button>
           <div class="status" aria-label="Estado del sistema">
             <span class="status-dot"></span>
             WEBGL ONLINE
@@ -752,7 +1128,9 @@
         <div class="side-label side-right">DRAG / TYPE / ZOOM</div>
       </section>
 
-      <section class="studio-project" aria-labelledby="studio-project-title">
+    
+
+      <section id="studio-project" class="studio-project" aria-labelledby="studio-project-title">
         <div class="studio-project-intro">
           <p class="studio-project-kicker">MI ESTUDIO DE PROGRAMACIÓN</p>
           <h2 id="studio-project-title">Luizabeth's Studios</h2>
@@ -782,6 +1160,23 @@
           </span>
           <span class="studio-card-arrow" aria-hidden="true">↗</span>
         </a>
+        <div class="reaction-panel" aria-labelledby="reaction-title">
+          <p id="reaction-title" class="reaction-title">¿TE GUSTÓ ESTE PORTAFOLIO?</p>
+          <div class="reaction-buttons">
+            <button id="like-button" class="reaction-button" type="button" aria-pressed="false">
+              <span aria-hidden="true">♡</span>
+              <span>ME GUSTA</span>
+              <span id="like-count" class="reaction-count">0</span>
+            </button>
+            <button id="dislike-button" class="reaction-button" type="button" aria-pressed="false">
+              <span aria-hidden="true">☹</span>
+              <span>NO ME GUSTA</span>
+              <span id="dislike-count" class="reaction-count">0</span>
+            </button>
+          </div>
+          <p id="reaction-status" class="reaction-status" aria-live="polite">Puedes cambiar tu reacción hasta 2 veces.</p>
+          <p class="reaction-note">Los recuentos se guardan solo en este navegador.</p>
+        </div>
       </section>
 
       <div id="entry-hint" class="entry-hint">
@@ -794,9 +1189,27 @@
       <footer class="footer">
         <span>GEOMETRY: LIVE</span>
         <span class="footer-line" aria-hidden="true"></span>
-        <span>© 2026</span>
+        <span class="footer-contact">
+          <span>CONTÁCTAME</span>
+          <a href="mailto:sophibarcos@gmail.com">sophibarcos@gmail.com</a>
+        </span>
       </footer>
+      <audio id="background-music" src="./musica-fondo.mp3" preload="none" loop></audio>
+      <audio id="like-sound" src="./reaccion-me-gusta.mp3" preload="none"></audio>
+      <audio id="dislike-sound" src="./reaccion-no-me-gusta.mp3" preload="none"></audio>
     </main>
+
+    <aside id="welcome-notice" class="welcome-notice" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
+      <div id="confetti-layer" aria-hidden="true"></div>
+      <div class="welcome-card">
+        <button id="welcome-close" class="welcome-close" type="button" aria-label="Cerrar felicitación">×</button>
+        <span class="welcome-sparkle" aria-hidden="true">✦ ✧ ✦</span>
+        <h2 id="welcome-title">¡Felicidades!</h2>
+        <p>Eres la persona número</p>
+        <span id="visitor-number" class="welcome-visitor-number">#1</span>
+        <span class="welcome-visitor-caption">EN VISITAR MI PORTAFOLIO · ESTE NAVEGADOR</span>
+      </div>
+    </aside>
 
     <iframe
       id="portfolio-overlay"
@@ -1028,6 +1441,7 @@ import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.j
 const stage = document.querySelector("#webgl-stage");
 const siteShell = document.querySelector(".site-shell");
 const entryHint = document.querySelector("#entry-hint");
+const scrollCue = document.querySelector(".scroll-cue");
 const returnButton = document.querySelector("#return-button");
 const portfolioOverlay = document.querySelector("#portfolio-overlay");
 const embeddedSearchPage = document.querySelector("#embedded-search-page");
@@ -1271,6 +1685,7 @@ function openPortfolio() {
   if (view !== "computer") return;
   view = "approaching";
   zoomed = true;
+  updateScrollCue();
   siteShell.classList.add("screen-expanded");
   entryHint.hidden = true;
   portfolioOverlay.classList.remove("is-visible");
@@ -1291,6 +1706,7 @@ function closePortfolio() {
   window.clearTimeout(transitionTimer);
   view = "computer";
   zoomed = false;
+  updateScrollCue();
   screenFrame.dataset.page = "search";
   screenFrame.srcdoc = searchPageMarkup;
   portfolioOverlay.classList.remove("is-visible");
@@ -1451,8 +1867,15 @@ function updateEntryHint() {
   entryHint.hidden = zoomed || window.scrollY >= 80;
 }
 
+function updateScrollCue() {
+  if (!scrollCue) return;
+  scrollCue.classList.toggle("is-hidden", zoomed || window.scrollY >= 80);
+}
+
 window.addEventListener("scroll", updateEntryHint, { passive: true });
+window.addEventListener("scroll", updateScrollCue, { passive: true });
 updateEntryHint();
+updateScrollCue();
 
 const headline = document.querySelector("#hero-title");
 if (headline && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -1482,6 +1905,213 @@ if (studioProject && "IntersectionObserver" in window) {
   );
   projectObserver.observe(studioProject);
 }
+
+const backgroundMusic = document.querySelector("#background-music");
+const musicToggle = document.querySelector("#music-toggle");
+const likeSound = document.querySelector("#like-sound");
+const dislikeSound = document.querySelector("#dislike-sound");
+const welcomeNotice = document.querySelector("#welcome-notice");
+const welcomeClose = document.querySelector("#welcome-close");
+const visitorNumberLabel = document.querySelector("#visitor-number");
+const confettiLayer = document.querySelector("#confetti-layer");
+const dateLabel = document.querySelector("#portfolio-date");
+const likeButton = document.querySelector("#like-button");
+const dislikeButton = document.querySelector("#dislike-button");
+const likeCountLabel = document.querySelector("#like-count");
+const dislikeCountLabel = document.querySelector("#dislike-count");
+const reactionStatus = document.querySelector("#reaction-status");
+const visitorCountKey = "luizabeth-portfolio-visits-v1";
+const visitorFlagKey = "luizabeth-portfolio-seen-v1";
+const reactionChoiceKey = "luizabeth-portfolio-reaction-v1";
+const reactionChangesKey = "luizabeth-portfolio-reaction-changes-v1";
+
+function readLocalValue(key) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function saveLocalValue(key, value) {
+  try {
+    window.localStorage.setItem(key, String(value));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function readLocalNumber(key) {
+  const value = Number.parseInt(readLocalValue(key) || "0", 10);
+  return Number.isFinite(value) && value > 0 ? value : 0;
+}
+
+function updatePortfolioDate() {
+  if (!dateLabel) return;
+  const now = new Date();
+  dateLabel.dateTime = now.toISOString().slice(0, 10);
+  dateLabel.textContent = new Intl.DateTimeFormat("es-VE", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(now).replaceAll(".", "").toUpperCase();
+}
+
+function showWelcomeNotice() {
+  if (!welcomeNotice || !visitorNumberLabel) return;
+  const alreadyVisited = readLocalValue(visitorFlagKey) === "yes";
+  if (alreadyVisited) return;
+
+  const nextNumber = readLocalNumber(visitorCountKey) + 1;
+  saveLocalValue(visitorCountKey, nextNumber);
+  saveLocalValue(visitorFlagKey, "yes");
+  visitorNumberLabel.textContent = `#${nextNumber}`;
+  welcomeNotice.hidden = false;
+
+  if (!confettiLayer) return;
+  const confettiColors = ["#c6e8ae", "#f3d47a", "#f1a7a0", "#d4c6ff", "#f1ebd4"];
+  for (let index = 0; index < 44; index += 1) {
+    const piece = document.createElement("span");
+    piece.className = "confetti-piece";
+    piece.style.setProperty("--confetti-x", `${Math.random() * 100}%`);
+    piece.style.setProperty("--confetti-size", `${5 + Math.random() * 7}px`);
+    piece.style.setProperty("--confetti-color", confettiColors[index % confettiColors.length]);
+    piece.style.setProperty("--confetti-duration", `${2.7 + Math.random() * 1.6}s`);
+    piece.style.setProperty("--confetti-delay", `${Math.random() * 0.7}s`);
+    piece.style.setProperty("--confetti-drift", `${(Math.random() - 0.5) * 22}vw`);
+    piece.style.setProperty("--confetti-rotation", `${Math.random() * 720 - 360}deg`);
+    confettiLayer.appendChild(piece);
+    window.setTimeout(() => piece.remove(), 5200);
+  }
+}
+
+function closeWelcomeNotice() {
+  if (welcomeNotice) welcomeNotice.hidden = true;
+}
+
+welcomeClose?.addEventListener("click", closeWelcomeNotice);
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeWelcomeNotice();
+});
+
+function updateMusicButton() {
+  if (!musicToggle || !backgroundMusic) return;
+  if (activeReactionAudio) {
+    musicToggle.textContent = "♫ SONIDO EN CURSO";
+    musicToggle.setAttribute("aria-pressed", "false");
+    musicToggle.disabled = true;
+    return;
+  }
+  musicToggle.disabled = false;
+  const isPlaying = !backgroundMusic.paused;
+  musicToggle.textContent = isPlaying ? "♫ PAUSAR MÚSICA" : "♫ ACTIVAR MÚSICA";
+  musicToggle.setAttribute("aria-pressed", String(isPlaying));
+}
+
+musicToggle?.addEventListener("click", async () => {
+  if (!backgroundMusic || activeReactionAudio) return;
+  if (backgroundMusic.paused) {
+    try {
+      await backgroundMusic.play();
+    } catch {
+      musicToggle.textContent = "TOCA PARA ACTIVAR MÚSICA";
+      return;
+    }
+  } else {
+    backgroundMusic.pause();
+  }
+  updateMusicButton();
+});
+
+backgroundMusic?.addEventListener("play", updateMusicButton);
+backgroundMusic?.addEventListener("pause", updateMusicButton);
+if (backgroundMusic) {
+  backgroundMusic.volume = 0.9;
+  backgroundMusic.play().then(updateMusicButton).catch(updateMusicButton);
+}
+
+let activeReactionAudio = null;
+let activeReactionEndedHandler = null;
+let backgroundPlayingBeforeReaction = false;
+
+function playReactionSound(sound) {
+  if (!sound) return;
+  backgroundPlayingBeforeReaction =
+    backgroundPlayingBeforeReaction || Boolean(backgroundMusic && !backgroundMusic.paused);
+  if (activeReactionAudio && activeReactionEndedHandler) {
+    activeReactionAudio.removeEventListener("ended", activeReactionEndedHandler);
+  }
+  if (activeReactionAudio) {
+    activeReactionAudio.pause();
+    activeReactionAudio.currentTime = 0;
+  }
+  backgroundMusic?.pause();
+  [likeSound, dislikeSound].forEach((otherSound) => {
+    if (otherSound && otherSound !== sound) {
+      otherSound.pause();
+      otherSound.currentTime = 0;
+    }
+  });
+  activeReactionAudio = sound;
+  const finishReaction = () => {
+    if (activeReactionAudio !== sound) return;
+    sound.removeEventListener("ended", finishReaction);
+    activeReactionAudio = null;
+    activeReactionEndedHandler = null;
+    const shouldResumeBackground = backgroundPlayingBeforeReaction;
+    backgroundPlayingBeforeReaction = false;
+    if (shouldResumeBackground && backgroundMusic) {
+      backgroundMusic.play().then(updateMusicButton).catch(updateMusicButton);
+    } else {
+      updateMusicButton();
+    }
+  };
+  activeReactionEndedHandler = finishReaction;
+  sound.addEventListener("ended", finishReaction, { once: true });
+  sound.currentTime = 0;
+  updateMusicButton();
+  sound.play().catch(finishReaction);
+}
+
+let currentReaction = readLocalValue(reactionChoiceKey) || "";
+let reactionChanges = Math.min(2, readLocalNumber(reactionChangesKey));
+
+function renderReactionState() {
+  if (!likeButton || !dislikeButton) return;
+  const hasUsedBothChanges = reactionChanges >= 2;
+  likeButton.setAttribute("aria-pressed", String(currentReaction === "like"));
+  dislikeButton.setAttribute("aria-pressed", String(currentReaction === "dislike"));
+  likeButton.disabled = hasUsedBothChanges;
+  dislikeButton.disabled = hasUsedBothChanges;
+  if (likeCountLabel) likeCountLabel.textContent = currentReaction === "like" ? "1" : "0";
+  if (dislikeCountLabel) dislikeCountLabel.textContent = currentReaction === "dislike" ? "1" : "0";
+  if (!reactionStatus) return;
+  if (hasUsedBothChanges) {
+    reactionStatus.textContent = "Ya usaste tus 2 cambios de reacción en este navegador.";
+  } else if (reactionChanges === 1) {
+    reactionStatus.textContent = "Tu reacción quedó guardada. Puedes cambiarla una vez más.";
+  } else {
+    reactionStatus.textContent = "Puedes cambiar tu reacción hasta 2 veces.";
+  }
+}
+
+function chooseReaction(reaction) {
+  if (reactionChanges >= 2 || currentReaction === reaction) return;
+  currentReaction = reaction;
+  reactionChanges += 1;
+  saveLocalValue(reactionChoiceKey, currentReaction);
+  saveLocalValue(reactionChangesKey, reactionChanges);
+  renderReactionState();
+  playReactionSound(reaction === "like" ? likeSound : dislikeSound);
+}
+
+likeButton?.addEventListener("click", () => chooseReaction("like"));
+dislikeButton?.addEventListener("click", () => chooseReaction("dislike"));
+
+updatePortfolioDate();
+showWelcomeNotice();
+renderReactionState();
 
 </script>
   </body>

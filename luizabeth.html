@@ -1,10 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luizabeth - Buscar con Google</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&family=Paytone One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&family=Paytone+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -60,9 +61,9 @@
             background-color: #ffffff;
         }
 
-        /* CSS-only Pastel Checkerboard Background (Fondo Ajedrez Rosa y Amarillo - sjdjdj.png) */
+        /* CSS-only Pastel Checkerboard Background */
         .bg-checkerboard {
-            background-color: #fff9db; /* Amarillo pastel */
+            background-color: #fff9db;
             background-image: 
                 linear-gradient(45deg, #fcc2fc 25%, transparent 25%, transparent 75%, #fcc2fc 75%, #fcc2fc), 
                 linear-gradient(45deg, #fcc2fc 25%, transparent 25%, transparent 75%, #fcc2fc 75%, #fcc2fc);
@@ -71,9 +72,9 @@
             opacity: 0.85;
         }
 
-        /* CSS-only Yellow Chess Checkerboard Background (Aesthetic Wallpapers_ Disney Beauty and Beast Belle Yellow) */
+        /* CSS-only Yellow Chess Checkerboard Background */
         .bg-checkerboard-yellow {
-            background-color: #fffde6; /* Amarillo súper clarito */
+            background-color: #fffde6;
             background-image: 
                 linear-gradient(45deg, #fce06d 25%, transparent 25%, transparent 75%, #fce06d 75%, #fce06d), 
                 linear-gradient(45deg, #fce06d 25%, transparent 25%, transparent 75%, #fce06d 75%, #fce06d);
@@ -82,16 +83,16 @@
             opacity: 0.9;
         }
 
-        /* CSS-only Pastel Star Pattern Background (Fondo de estrellas amarillas sobre fondo rosa pastel - dhhfjd.png) */
+        /* CSS-only Pastel Star Pattern Background */
         .bg-stars-pink {
-            background-color: #df6d91; /* Rosa base similar a la imagen */
+            background-color: #df6d91;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='100' viewBox='0 0 80 100'%3E%3Cg fill='%23fff39a'%3E%3Cpath d='M20 15 L23 22 L31 23 L25 28 L27 36 L20 32 L13 36 L15 28 L9 23 L17 22 Z M60 55 L63 62 L71 63 L65 68 L67 76 L60 72 L53 76 L55 68 L49 63 L57 62 Z M20 65 L22 69 L27 70 L23 73 L24 78 L20 75 L16 78 L17 73 L13 70 L18 69 Z M60 15 L62 19 L67 20 L63 23 L64 28 L60 25 L56 28 L57 23 L53 20 L58 19 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 80px 100px;
         }
 
-        /* CSS-only Tinkerbell Green Starry Background (Verde Tinkerbell con estrellas oliva) */
+        /* CSS-only Tinkerbell Green Starry Background */
         .bg-stars-green {
-            background-color: #b0cb4c; /* Verde Tinkerbell base */
+            background-color: #b0cb4c;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='100' viewBox='0 0 80 100'%3E%3Cg fill='%238ca433'%3E%3Cpath d='M20 15 L23 22 L31 23 L25 28 L27 36 L20 32 L13 36 L15 28 L9 23 L17 22 Z M60 55 L63 62 L71 63 L65 68 L67 76 L60 72 L53 76 L55 68 L49 63 L57 62 Z M20 65 L22 69 L27 70 L23 73 L24 78 L20 75 L16 78 L17 73 L13 70 L18 69 Z M60 15 L62 19 L67 20 L63 23 L64 28 L60 25 L56 28 L57 23 L53 20 L58 19 Z'/%3E%3C/g%3E%3C/svg%3E");
             background-size: 80px 100px;
         }
@@ -104,13 +105,13 @@
             letter-spacing: -2px;
         }
 
-        /* Animación suave de aparición para el menú de idiomas */
+        /* Animación suave de aparición */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-4px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
-            animation: fadeIn 0.15s ease-out forwards;
+            animation: fadeIn 0.2s ease-out forwards;
         }
     </style>
 </head>
@@ -120,7 +121,7 @@
     <header class="sticky top-0 bg-white z-40 border-b border-gray-100">
         <!-- Search bar row -->
         <div class="flex flex-col md:flex-row items-center md:items-center px-4 md:px-10 py-4 gap-4 md:gap-0">
-            <!-- Luizabeth Logo with beautiful blending colors -->
+            <!-- Luizabeth Logo -->
             <div class="flex-shrink-0 md:mr-8 cursor-pointer select-none" onclick="navigateToTab('Todo')">
                 <span class="logo-luizabeth text-4xl md:text-4xl">Luizabeth</span>
             </div>
@@ -157,7 +158,7 @@
                             </svg>
                         </button>
 
-                        <!-- Search icon (magnifying glass) -->
+                        <!-- Search icon -->
                         <button type="submit" class="p-1.5 text-blue-500 rounded-full hover:bg-gray-100 transition-colors" title="Buscar">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -180,139 +181,179 @@
                         <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
                     </svg>
                 </button>
-                <!-- Custom Profile Avatar with Luizabeth's real photo -->
+                <!-- Custom Profile Avatar -->
                 <div class="w-8 h-8 rounded-full overflow-hidden cursor-pointer shadow-sm hover:shadow transition-shadow border border-gray-200">
                     <img src="Untitled.png" alt="Luizabeth Contreras" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
 
-        <!-- Navigation Tabs -->
+        <!-- Navigation Tabs (Con hover para mostrar resumen del tema en el panel derecho) -->
         <div class="flex px-4 md:px-10 lg:px-16 overflow-x-auto scrollbar-none text-sm text-gray-600 select-none">
             <div class="flex space-x-6 whitespace-nowrap">
-                <!-- Todo -->
-                <button id="tab-Todo" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-blue-500 text-blue-600 font-medium flex items-center gap-1.5 transition-all font-semibold">
+                <button id="tab-Todo" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Todo')" class="nav-tab py-3 px-1 border-b-[3px] border-blue-500 text-blue-600 font-medium flex items-center gap-1.5 transition-all font-semibold">
                     Todo
                 </button>
 
-                <!-- Proyectos -->
-                <button id="tab-Proyectos" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all font-semibold">
+                <button id="tab-Proyectos" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Proyectos')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all font-semibold">
                     Proyectos
                 </button>
 
-                <!-- Estudios -->
-                <button id="tab-Estudios" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-Estudios" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Estudios')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Estudios
                 </button>
 
-                <!-- Contacto -->
-                <button id="tab-Contacto" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-Contacto" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Contacto')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Contacto
                 </button>
 
-                <!-- Sobre mí -->
-                <button id="tab-SobreMí" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-SobreMí" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('SobreMí')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Sobre mí
                 </button>
 
-                <!-- Servicios -->
-                <button id="tab-Servicios" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-Servicios" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Servicios')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Servicios
                 </button>
 
-                <!-- Stack Tecnológico -->
-                <button id="tab-StackTecnológico" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all font-semibold">
+                <button id="tab-StackTecnológico" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('StackTecnológico')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all font-semibold">
                     Stack Tecnológico
                 </button>
 
-                <!-- Proceso de Trabajo -->
-                <button id="tab-ProcesodeTrabajo" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-ProcesodeTrabajo" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('ProcesodeTrabajo')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Proceso de Trabajo
                 </button>
 
-                <!-- Blog -->
-                <button id="tab-Blog" onclick="setActiveTab(this)" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
+                <button id="tab-Blog" onclick="setActiveTab(this)" onmouseenter="previewTabInfo('Blog')" class="nav-tab py-3 px-1 border-b-[3px] border-transparent hover:text-gray-900 flex items-center gap-1.5 transition-all">
                     Blog
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Results Section (Optimized layout and wider content area) -->
-    <main class="flex-grow w-full px-4 md:px-10 lg:px-16 py-6 max-w-[1000px]">
-        <!-- Search Statistics -->
-        <div id="search-stats" class="text-sm google-light-gray mb-6 select-none font-light">
-            Aproximadamente 9 resultados destacados (0.02 segundos)
-        </div>
+    <!-- Main Layout: Columna Izquierda (Resultados) + Espacio Derecho (Panel de Resumen Dinámico) -->
+    <div class="flex-grow w-full px-4 md:px-10 lg:px-16 py-6 max-w-[1440px] flex flex-col lg:flex-row gap-10 items-start">
+        
+        <!-- Columna Principal de Resultados -->
+        <main class="w-full lg:max-w-[780px] flex-shrink-0">
+            <!-- Search Statistics -->
+            <div id="search-stats" class="text-sm google-light-gray mb-6 select-none font-light">
+                Aproximadamente 9 resultados destacados (0.02 segundos)
+            </div>
 
-        <!-- Clarification Banner -->
-        <div class="bg-[#f8f9fa] border border-gray-200 rounded-2xl p-5 mb-8 hover:shadow-sm transition-shadow">
-            <p class="text-[17px] text-gray-800">
-                Estás viendo el ecosistema digital de <span class="italic font-semibold text-blue-600 hover:underline cursor-pointer" onclick="navigateToTab('SobreMí')">Luizabeth</span>
-            </p>
-            <p class="text-xs google-light-gray mt-1.5">
-                Búsqueda filtrada actualmente para: <span class="text-blue-600 hover:underline cursor-pointer font-medium" id="current-filter-badge">proyectos de programación</span>
-            </p>
-        </div>
+            <!-- Clarification Banner -->
+            <div class="bg-[#f8f9fa] border border-gray-200 rounded-2xl p-5 mb-8 hover:shadow-sm transition-shadow">
+                <p class="text-[17px] text-gray-800">
+                    Estás viendo el ecosistema digital de <span class="italic font-semibold text-blue-600 hover:underline cursor-pointer" onclick="navigateToTab('SobreMí')">Luizabeth</span>
+                </p>
+                <p class="text-xs google-light-gray mt-1.5">
+                    Búsqueda filtrada actualmente para: <span class="text-blue-600 hover:underline cursor-pointer font-medium" id="current-filter-badge">proyectos de programación</span>
+                </p>
+            </div>
 
-        <!-- Dynamic Search Results List Wrapper -->
-        <div id="results-container" class="space-y-10">
-            <!-- Dynamic contents will be injected here via JavaScript -->
-        </div>
+            <!-- Dynamic Search Results List Wrapper -->
+            <div id="results-container" class="space-y-10">
+                <!-- Dynamic contents will be injected here via JavaScript -->
+            </div>
 
-        <!-- Related Searches (Wrapper to toggle dynamically) -->
-        <div id="related-searches-section" class="mt-16 border-t border-gray-150 pt-8">
-            <h2 class="text-[22px] text-gray-900 font-medium mb-6">Búsquedas relacionadas</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div onclick="handleRelatedSearch('diseño web luizabeth', 'Proyectos')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
-                    <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
+            <!-- Related Searches -->
+            <div id="related-searches-section" class="mt-16 border-t border-gray-150 pt-8">
+                <h2 class="text-[22px] text-gray-900 font-medium mb-6">Búsquedas relacionadas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div onclick="handleRelatedSearch('diseño web luizabeth', 'Proyectos')" onmouseenter="previewTabInfo('Proyectos')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
+                        <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-[15px] font-medium text-gray-800">diseño web luizabeth</span>
                     </div>
-                    <span class="text-[15px] font-medium text-gray-800">diseño web luizabeth</span>
-                </div>
-                <div onclick="handleRelatedSearch('servicios de desarrollo web', 'Servicios')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
-                    <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
+                    <div onclick="handleRelatedSearch('servicios de desarrollo web', 'Servicios')" onmouseenter="previewTabInfo('Servicios')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
+                        <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-[15px] font-medium text-gray-800">servicios de desarrollo web</span>
                     </div>
-                    <span class="text-[15px] font-medium text-gray-800">servicios de desarrollo web</span>
-                </div>
-                <div onclick="handleRelatedSearch('proceso de diseño interactivo', 'ProcesodeTrabajo')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
-                    <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
+                    <div onclick="handleRelatedSearch('proceso de diseño interactivo', 'ProcesodeTrabajo')" onmouseenter="previewTabInfo('ProcesodeTrabajo')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
+                        <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-[15px] font-medium text-gray-800">proceso de diseño interactivo</span>
                     </div>
-                    <span class="text-[15px] font-medium text-gray-800">proceso de diseño interactivo</span>
-                </div>
-                <div onclick="handleRelatedSearch('contacto luizabeth dev', 'Contacto')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
-                    <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
+                    <div onclick="handleRelatedSearch('contacto luizabeth dev', 'Contacto')" onmouseenter="previewTabInfo('Contacto')" class="flex items-center space-x-4.5 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100/80 cursor-pointer transition-all border border-gray-100">
+                        <div class="p-2 bg-white rounded-full shadow-xs text-gray-500">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-[15px] font-medium text-gray-800">contacto luizabeth dev</span>
                     </div>
-                    <span class="text-[15px] font-medium text-gray-800">contacto luizabeth dev</span>
                 </div>
             </div>
-        </div>
-  <aside class="portfolio-collage" aria-label="Collage visual de Luizabeth">
-    <img src="image.png" alt="Collage con gato, paisaje, libros, papelería y objetos retro" />
-  </aside>
+        </main>
 
-  </main>
+        <!-- Espacio Derecho en Blanco: Panel de Resumen Rápido (Knowledge Card al pasar el cursor) -->
+        <aside class="w-full lg:w-[390px] lg:sticky lg:top-[132px] flex-shrink-0 space-y-6">
+            
+            <!-- Tarjeta de Resumen Dinámico -->
+            <div id="hover-summary-card" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-xs transition-all duration-200">
+                <!-- Cabecera de Estado -->
+                <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-4">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full" id="preview-section">
+                        Sección: Vista General
+                    </span>
+                    <span class="text-[11px] text-gray-400 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Vista previa
+                    </span>
+                </div>
+
+                <!-- Título y Descripción del Tema / Proyecto -->
+                <h3 id="preview-title" class="text-lg font-bold text-gray-900 leading-snug mb-2">
+                    Ecosistema Digital de Luizabeth
+                </h3>
+                <p id="preview-desc" class="text-xs text-gray-600 leading-relaxed font-light mb-5">
+                    Pasa el cursor sobre cualquier pestaña superior o tarjeta de información para ver aquí un resumen rápido de su contenido, equipo de trabajo y enlaces disponibles.
+                </p>
+
+                <!-- Ficha Técnica Detallada -->
+                <div class="space-y-3 bg-slate-50/80 rounded-xl p-4 border border-gray-100 text-xs">
+                    <!-- Equipo / Colaboradores -->
+                    <div class="flex items-start gap-2.5">
+                        <span class="text-base leading-none mt-0.5">👩‍💻</span>
+                        <div>
+                            <span class="block font-semibold text-gray-800">Equipo y Colaboración</span>
+                            <span id="preview-team" class="text-gray-600">Trabajo 100% individual (Solo Luizabeth)</span>
+                        </div>
+                    </div>
+
+                    <!-- Enlace Directo o Estado -->
+                    <div class="flex items-start gap-2.5 pt-2.5 border-t border-gray-200/60">
+                        <span class="text-base leading-none mt-0.5">🔗</span>
+                        <div class="w-full overflow-hidden">
+                            <span class="block font-semibold text-gray-800 mb-0.5">Enlace / Acceso</span>
+                            <div id="preview-link-container">
+                                <span class="text-gray-500 italic">Selecciona o pasa el cursor sobre un proyecto para ver su enlace</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
   
-  <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-[#f2f2f2] text-sm text-[#70757a] border-t border-gray-200 mt-12">
-        <!-- Location details -->
         <div class="px-4 md:px-10 lg:px-16 py-3 border-b border-gray-300 flex items-center space-x-2">
             <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
             <span class="font-normal text-gray-600">Venezuela</span>
             <span class="text-xs text-gray-400">• Basado en tu actividad anterior</span>
         </div>
-        <!-- Help links (Publicidad Removed, Modals Wired Up) -->
         <div class="px-4 md:px-10 lg:px-16 py-3.5 flex flex-wrap justify-between gap-y-2 text-xs">
             <div class="flex space-x-6">
                 <button onclick="openFooterModal('sobre-luizabeth')" class="hover:underline text-left text-gray-600 hover:text-blue-600 transition-colors font-medium">Sobre Luizabeth</button>
@@ -327,9 +368,9 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE FOOTER MODALS SYSTEM (Cerrables con animaciones fluidas) -->
+    <!-- INTERACTIVE FOOTER MODALS SYSTEM -->
     
-    <!-- Modal 1: Sobre Luizabeth (Fondo de Estrellas dhhfjd.png y texto largo) -->
+    <!-- Modal 1: Sobre Luizabeth -->
     <div id="modal-sobre-luizabeth" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs px-4">
         <div class="bg-stars-pink rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative border-4 border-yellow-200 text-white max-h-[85vh] overflow-y-auto">
             <button onclick="closeFooterModal('sobre-luizabeth')" class="absolute top-4 right-4 bg-yellow-200 hover:bg-yellow-300 text-gray-900 rounded-full p-2 transition-all shadow-md">
@@ -350,14 +391,14 @@
                         Cuando no estoy escribiendo código con HTML5, Tailwind CSS o React.js, me encanta pasar tiempo investigando sobre la psicología del color, explorando nuevas corrientes de diseño retro e interactivo, y grabando videos de procesos cortos para inspirar a otros creadores a sumergirse en este fascinante camino del autodesarrollo y el diseño visual.
                     </p>
                     <p>
-                        Este espacio interactivo simula un motor de búsqueda personalizado para que descubras cada aspecto de mi trabajo de una manera divertida e intuitiva. ¡Espero que jod-disfrutes explorando todo lo que he construido para ti!
+                        Este espacio interactivo simula un motor de búsqueda personalizado para que descubras cada aspecto de mi trabajo de una manera divertida e intuitiva. ¡Espero que disfrutes explorando todo lo que he construido para ti!
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2: Negocios (Fondo Blanco - Luizabeth's Studios) -->
+    <!-- Modal 2: Negocios -->
     <div id="modal-negocios" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs px-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative border border-gray-100 max-h-[85vh] overflow-y-auto">
             <button onclick="closeFooterModal('negocios')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-2 transition-all">
@@ -388,7 +429,7 @@
         </div>
     </div>
 
-    <!-- Modal 3: Cómo funciona la Búsqueda (Fondo Blanco/Gris) -->
+    <!-- Modal 3: Cómo funciona la Búsqueda -->
     <div id="modal-como-funciona" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs px-4">
         <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative border border-gray-200 max-h-[85vh] overflow-y-auto">
             <button onclick="closeFooterModal('como-funciona')" class="absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full p-2 transition-all">
@@ -399,19 +440,19 @@
             <h3 class="text-lg font-bold text-gray-900 mb-4 mt-2">¿Cómo funciona la Búsqueda?</h3>
             <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-light">
                 <p>
-                    This site web es un <strong>portfolio dinámico</strong> que simula la interfaz clásica del motor de búsqueda de Google.
+                    Este sitio web es un <strong>portfolio dinámico</strong> que simula la interfaz clásica del motor de búsqueda de Google.
                 </p>
                 <p>
-                    Al hacer clic en cualquiera de las pestañas superiores (como <em>Proyectos, Estudios o Servicios</em>), el sistema consulta de forma instantánea una base de datos local estructurada en JavaScript (`searchDatabase`). 
+                    Al hacer clic en cualquiera de las pestañas superiores (como <em>Proyectos, Estudios o Servicios</em>), el sistema consulta de forma instantánea una base de datos local estructurada en JavaScript. 
                 </p>
                 <p>
-                    De igual manera, el buscador de la cabecera actualiza la consulta dinámicamente y filtra los resultados en tiempo real sin recargar la página, garantizando una velocidad de navegación sorprendente.
+                    Además, al pasar el cursor sobre cualquier tarjeta o tema, el panel derecho te muestra un resumen rápido del contenido, colaboradores y enlaces.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Modal 4: Privacidad (Términos Sanos e Infantiles / Menores de 18 años) -->
+    <!-- Modal 4: Privacidad -->
     <div id="modal-privacidad" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs px-4">
         <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative border border-gray-100 max-h-[85vh] overflow-y-auto">
             <button onclick="closeFooterModal('privacidad')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-2 transition-all">
@@ -426,13 +467,13 @@
                     Nos tomamos tu seguridad digital muy en serio. Este sitio web es <strong>100% sano, seguro y apto para menores de 18 años</strong>. 
                 </p>
                 <p>
-                    No recopilamos información personal de ningún tipo, no utilizamos cookies de rastreo comercial ni guardamos contraseñas. Los datos ingresados en el formulario de contacto se procesan y simulan exclusivamente en tu navegador, garantizando un entorno educativo y de pruebas completamente limpio y protegido.
+                    No recopilamos información personal de ningún tipo, no utilizamos cookies de rastreo comercial ni guardamos contraseñas. Los datos ingresados en el formulario de contacto se procesan exclusivamente en tu navegador.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Modal 5: Motivación y Estudios (Fondo Verde Tinkerbell Starry con Ilustraciones y Descripciones a Dos Columnas) -->
+    <!-- Modal 5: Motivación y Estudios -->
     <div id="modal-estudios-motivacion" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs px-4">
         <div class="bg-stars-green rounded-3xl p-4 sm:p-8 max-w-4xl w-full shadow-2xl relative border-4 border-yellow-100 text-gray-800 max-h-[90vh] overflow-y-auto">
             <button onclick="closeFooterModal('estudios-motivacion')" class="absolute top-4 right-4 bg-yellow-100 hover:bg-yellow-200 text-gray-800 rounded-full p-2 transition-all shadow-md z-15">
@@ -449,14 +490,10 @@
                     Mi Pasión por la Tecnología & Aprendizaje
                 </h3>
 
-                <!-- Contenedor a Dos Columnas -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-8">
-                    
-                    <!-- Columna Izquierda: Foto de Luizabeth tipo Retrato Polaroid -->
                     <div class="md:col-span-4 flex flex-col items-center">
                         <div class="w-full max-w-[220px] bg-slate-50 p-3 pb-8 rounded-xl shadow-md border border-gray-200 rotate-1 hover:rotate-0 transition-transform duration-300">
                             <div class="w-full aspect-square bg-indigo-100 rounded-lg overflow-hidden flex items-center justify-center relative shadow-inner border border-gray-150">
-                                <!-- Imagen real de Luizabeth Contreras -->
                                 <img src="Untitled.png" alt="Luizabeth Contreras" class="w-full h-full object-cover">
                             </div>
                             <div class="mt-4 text-center">
@@ -466,7 +503,6 @@
                         </div>
                     </div>
 
-                    <!-- Columna Derecha: Descripción tipo Biografía de Entusiasmo y Herramientas -->
                     <div class="md:col-span-8 space-y-4">
                         <h4 class="text-lg font-bold text-emerald-950 font-serif">¿Cómo canalizo mi entusiasmo por aprender?</h4>
                         <div class="text-sm text-gray-700 leading-relaxed font-light space-y-3">
@@ -486,92 +522,64 @@
                     </div>
                 </div>
 
-                <!-- SECCIÓN DE HERRAMIENTAS DIGITAL -->
                 <div class="border-t border-gray-100 pt-6">
                     <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Mi Kit Tecnológico & Herramientas</h4>
-                    
                     <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-                        
-                        <!-- GitHub -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-gray-900 hover:text-white transition-all cursor-default">
                             <span class="text-xl">🐙</span>
                             <span class="text-[11px] font-bold mt-1">GitHub</span>
                         </div>
-
-                        <!-- Vercel -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-black hover:text-white transition-all cursor-default">
                             <span class="text-xl">▲</span>
                             <span class="text-[11px] font-bold mt-1">Vercel</span>
                         </div>
-
-                        <!-- VS Code -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-blue-600 hover:text-white transition-all cursor-default">
                             <span class="text-xl">💻</span>
                             <span class="text-[11px] font-bold mt-1">VS Code</span>
                         </div>
-
-                        <!-- Canva -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-cyan-500 hover:text-white transition-all cursor-default">
                             <span class="text-xl">🎨</span>
                             <span class="text-[11px] font-bold mt-1">Canva</span>
                         </div>
-
-                        <!-- Figma -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-orange-500 hover:text-white transition-all cursor-default">
                             <span class="text-xl">❖</span>
                             <span class="text-[11px] font-bold mt-1">Figma</span>
                         </div>
-
-                        <!-- CodePen -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-slate-800 hover:text-white transition-all cursor-default">
                             <span class="text-xl">⬡</span>
                             <span class="text-[11px] font-bold mt-1">CodePen</span>
                         </div>
-
-                        <!-- Node.js -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-green-600 hover:text-white transition-all cursor-default">
                             <span class="text-xl">🟢</span>
                             <span class="text-[11px] font-bold mt-1">Node.js</span>
                         </div>
-
-                        <!-- Python -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-yellow-500 hover:text-blue-900 transition-all cursor-default">
                             <span class="text-xl">🐍</span>
                             <span class="text-[11px] font-bold mt-1">Python</span>
                         </div>
-
-                        <!-- Firebase -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-amber-500 hover:text-white transition-all cursor-default">
                             <span class="text-xl">🔥</span>
                             <span class="text-[11px] font-bold mt-1">Firebase</span>
                         </div>
-
-                        <!-- Supabase -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-emerald-600 hover:text-white transition-all cursor-default">
                             <span class="text-xl">⚡</span>
                             <span class="text-[11px] font-bold mt-1">Supabase</span>
                         </div>
-
-                        <!-- SQL -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-indigo-600 hover:text-white transition-all cursor-default">
                             <span class="text-xl">🛢️</span>
                             <span class="text-[11px] font-bold mt-1">SQL</span>
                         </div>
-
-                        <!-- Codespaces -->
                         <div class="flex flex-col items-center p-2.5 bg-gray-50 border border-gray-100 rounded-xl text-center group hover:bg-purple-600 hover:text-white transition-all cursor-default">
                             <span class="text-xl">☁️</span>
                             <span class="text-[11px] font-bold mt-1">Codespaces</span>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- VOICE SEARCH MODAL (Interactive Mock) -->
+    <!-- VOICE SEARCH MODAL -->
     <div id="voice-modal" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs">
         <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl flex flex-col items-center relative border border-gray-100">
             <button onclick="closeVoiceSearch()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 rounded-full p-1 hover:bg-gray-100 transition-colors">
@@ -590,7 +598,7 @@
         </div>
     </div>
 
-    <!-- GOOGLE LENS MODAL (Interactive Mock) -->
+    <!-- GOOGLE LENS MODAL -->
     <div id="lens-modal" class="fixed inset-0 bg-black/40 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs">
         <div class="bg-white rounded-2xl p-6 max-w-xl w-full mx-4 shadow-2xl relative border border-gray-100">
             <button onclick="closeLensSearch()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 rounded-full p-1 hover:bg-gray-100 transition-colors">
@@ -599,7 +607,6 @@
                 </svg>
             </button>
             <h3 class="text-lg font-medium text-gray-900 mb-4">Busca cualquier imagen con Luizabeth Lens</h3>
-            
             <div class="border-2 border-dashed border-gray-200 rounded-2xl p-12 flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100/50 transition-colors cursor-pointer">
                 <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
@@ -620,11 +627,178 @@
 
     <!-- Interactive Logic & Simulated Data Router -->
     <script>
+        // Datos de resumen rápido para las pestañas (temas principales)
+        const tabSummaries = {
+            'Todo': {
+                section: 'Vista General (Todo)',
+                title: 'Resumen del Ecosistema Digital',
+                desc: 'Vista principal con los accesos directos a mis proyectos web, formación académica, certificaciones y herramientas de desarrollo.',
+                team: 'Proyecto individual (Solo Luizabeth)',
+                link: ''
+            },
+            'Proyectos': {
+                section: 'Proyectos & Apps',
+                title: 'Portafolio de Desarrollo Web y Escritorio',
+                desc: 'Colección de más de 15 aplicaciones web, herramientas de productividad, dashboards en Firebase y minijuegos interactivos.',
+                team: 'Desarrollados 100% de forma individual (Solo Luizabeth)',
+                link: 'https://github.com/programmersforeveryone11-blip'
+            },
+            'Estudios': {
+                section: 'Estudios & Certificados',
+                title: 'Formación Académica y Cursos Skilio',
+                desc: 'Estudios de educación media en el Colegio Calasanz Valencia complementados con certificaciones en Python, Freelance e Inversión.',
+                team: 'Formación individual con mentoría en Skilio',
+                link: 'https://www.colegiocalasanzvalencia.com'
+            },
+            'Contacto': {
+                section: 'Contacto & Redes',
+                title: 'Canales Oficiales de Comunicación',
+                desc: 'Formulario directo y enlaces verificados de WhatsApp, Telegram, GitHub, Instagram y TikTok para propuestas y alianzas.',
+                team: 'Atención directa por Luizabeth Contreras',
+                link: 'mailto:luizabethsstudios@gmail.com'
+            },
+            'SobreMí': {
+                section: 'Sobre Mí',
+                title: 'Biografía de Luizabeth Contreras',
+                desc: 'Desarrolladora web y diseñadora UI/UX de 15 años apasionada por crear interfaces accesibles con apoyo de Inteligencia Artificial.',
+                team: 'Perfil personal individual',
+                link: ''
+            },
+            'Servicios': {
+                section: 'Servicios Digitales',
+                title: 'Catálogo de Soluciones a Medida',
+                desc: 'Desarrollo de sitios web, aplicaciones PWA, bots con IA, soporte técnico No-Code y optimización de presencia digital.',
+                team: 'Ejecución individual bajo Luizabeth\'s Studios',
+                link: 'https://clientes-chi.vercel.app'
+            },
+            'StackTecnológico': {
+                section: 'Stack Tecnológico',
+                title: 'Lenguajes, Frameworks y Diseño',
+                desc: 'Dominio de HTML5, CSS3, Tailwind CSS, JavaScript ES6+, React.js, Git/GitHub y herramientas visuales como Figma y Canva.',
+                team: 'Herramientas de uso diario individual',
+                link: ''
+            },
+            'ProcesodeTrabajo': {
+                section: 'Proceso de Trabajo',
+                title: 'Metodología de Creación en 6 Fases',
+                desc: 'Flujo estructurado desde la conceptualización con IA y prototipado en Figma hasta el despliegue continuo en Vercel o GitHub Pages.',
+                team: 'Flujo de trabajo individual',
+                link: ''
+            },
+            'Blog': {
+                section: 'Blog Personal',
+                title: 'Bitácora Creativa en Neocities',
+                desc: 'Espacio personal en constante evolución donde comparto avances, ideas visuales y experimentos web.',
+                team: 'Creado y mantenido por Luizabeth',
+                link: 'https://luizabeth.neocities.org'
+            }
+        };
+
+        // Función que actualiza el panel derecho al pasar el cursor
+        function updatePreviewPanel({ section, title, desc, team, link }) {
+            const secEl = document.getElementById('preview-section');
+            const titleEl = document.getElementById('preview-title');
+            const descEl = document.getElementById('preview-desc');
+            const teamEl = document.getElementById('preview-team');
+            const linkContainer = document.getElementById('preview-link-container');
+
+            if (!secEl || !titleEl || !descEl || !teamEl || !linkContainer) return;
+
+            secEl.textContent = `Sección: ${section}`;
+            titleEl.textContent = title;
+            descEl.textContent = desc;
+            teamEl.textContent = team || 'Trabajo individual (Solo Luizabeth)';
+
+            if (link && link.trim() !== '') {
+                const displayUrl = link.replace(/^https?:\/\//, '').replace(/^mailto:/, '');
+                linkContainer.innerHTML = `
+                    <a href="${link}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium break-all inline-flex items-center gap-1">
+                        <span>${displayUrl}</span>
+                        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                `;
+            } else {
+                linkContainer.innerHTML = `
+                    <span class="inline-flex items-center gap-1.5 text-amber-700 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-md font-medium">
+                        Sin enlace público disponible
+                    </span>
+                `;
+            }
+        }
+
+        // Vista previa al pasar el cursor por las pestañas (temas)
+        function previewTabInfo(tabKey) {
+            const info = tabSummaries[tabKey];
+            if (info) {
+                updatePreviewPanel(info);
+            }
+        }
+
+        // Vista previa automática al pasar el cursor por cualquier tarjeta o resultado dentro de #results-container
+        function attachHoverPreviews() {
+            const container = document.getElementById('results-container');
+            if (!container) return;
+
+            const cards = container.querySelectorAll('.group, .group\\/card, .group\\/game, .group\\/step, a.group');
+            cards.forEach(card => {
+                if (card.dataset.hoverBound) return;
+                card.dataset.hoverBound = 'true';
+
+                card.addEventListener('mouseenter', () => {
+                    const heading = card.querySelector('h3, h4');
+                    const title = heading ? heading.textContent.trim().replace(/\s+/g, ' ') : 'Elemento de ' + currentTab;
+                    
+                    const para = card.querySelector('p');
+                    const desc = para ? para.textContent.trim().replace(/\s+/g, ' ') : 'Contenido interactivo de la sección ' + currentTab + '.';
+
+                    const anchor = card.tagName === 'A' ? card : card.querySelector('a[href]');
+                    let link = '';
+                    if (anchor) {
+                        const rawHref = anchor.getAttribute('href');
+                        if (rawHref && rawHref !== '#' && !rawHref.startsWith('javascript:')) {
+                            link = anchor.href;
+                        }
+                    }
+
+                    // Detectar si menciona trabajo con otra persona o si es individual
+                    const fullText = card.textContent.toLowerCase();
+                    let team = 'Trabajo individual (Solo Luizabeth)';
+                    if (fullText.includes('adrián sáenz')) {
+                        team = 'Individual (Certificado por Adrián Sáenz - Skilio)';
+                    } else if (fullText.includes('calasanz')) {
+                        team = 'Proyecto individual (Contexto escolar - Colegio Calasanz)';
+                    }
+
+                    const tabLabels = {
+                        'Todo': 'Vista General',
+                        'Proyectos': 'Proyectos',
+                        'Estudios': 'Estudios',
+                        'Contacto': 'Contacto',
+                        'SobreMí': 'Sobre mí',
+                        'Servicios': 'Servicios',
+                        'StackTecnológico': 'Stack Tecnológico',
+                        'ProcesodeTrabajo': 'Proceso de Trabajo',
+                        'Blog': 'Blog'
+                    };
+
+                    updatePreviewPanel({
+                        section: tabLabels[currentTab] || currentTab,
+                        title: title,
+                        desc: desc,
+                        team: team,
+                        link: link
+                    });
+                });
+            });
+        }
+
         // Dictionary of Search Results for each section tab
         const searchDatabase = {
             'Todo': `
                 <!-- Result 1: Proyectos -->
-                <div class="group">
+                <div class="group p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-blue-50 rounded-full flex items-center justify-center shadow-xs text-blue-600 font-bold text-xs">P</div>
                         <div class="flex flex-col">
@@ -636,12 +810,12 @@
                         <a href="#" onclick="navigateToTab('Proyectos'); return false;">Mis Proyectos de Desarrollo Web, Aplicaciones y Juegos Interactivos</a>
                     </h3>
                     <p class="text-[14px] google-dark-gray leading-relaxed font-light">
-                        Explora mi colección de proyectos interactivos creados con tecnologías modernas. Incluye aplicaciones web completas, juegos interactivos de adivinanza (libros y música) y deisgn web responsivos de alta fidelidad.
+                        Explora mi colección de proyectos interactivos creados con tecnologías modernas. Incluye aplicaciones web completas, juegos interactivos de adivinanza (libros y música) y diseños web responsivos de alta fidelidad.
                     </p>
                 </div>
 
                 <!-- Result 2: Estudios -->
-                <div class="group">
+                <div class="group p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-green-50 rounded-full flex items-center justify-center shadow-xs text-green-600 font-bold text-xs">E</div>
                         <div class="flex flex-col">
@@ -658,7 +832,7 @@
                 </div>
 
                 <!-- Result 3: Stack Tecnológico -->
-                <div class="group">
+                <div class="group p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-amber-50 rounded-full flex items-center justify-center shadow-xs text-amber-600 font-bold text-xs">S</div>
                         <div class="flex flex-col">
@@ -670,35 +844,35 @@
                         <a href="#" onclick="navigateToTab('StackTecnológico'); return false;">Stack de Desarrollo: Lenguajes y Frameworks Preferidos</a>
                     </h3>
                     <p class="text-[14px] google-dark-gray leading-relaxed font-light">
-                        Dominio técnico en HTML5, CSS3 con Tailwind, JavaScript moderno, React, bases de datos y herramientas de desarrollo visual como Canva e Figma para el diseño UI/UX.
+                        Dominio técnico en HTML5, CSS3 con Tailwind, JavaScript moderno, React, bases de datos y herramientas de desarrollo visual como Canva y Figma para el diseño UI/UX.
                     </p>
                 </div>
             `,
             'Proyectos': `
                 <div class="space-y-4 mb-10">
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all">
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all">
                         <div class="flex items-center gap-3 text-sm text-gray-800 mb-2"><div class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">4</div><span class="text-xs text-gray-500">ideate-lac.vercel.app</span></div>
                         <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://ideate-lac.vercel.app" target="_blank" rel="noopener noreferrer">Temporizador y Cronómetro</a></h3>
                         <p class="text-[14px] google-dark-gray leading-relaxed font-light">Un cronómetro y temporizador sencillo creado con v0 de Vercel y desplegado en el mismo.</p>
                         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-mOS2pTgdqIazYeNf8M6suyA1zUHCV6.png" alt="Interfaz de Focus Keeper" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy">
                     </div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center font-bold text-xs">5</div><span class="text-xs text-gray-500">selector-ivory.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://selector-ivory.vercel.app" target="_blank" rel="noopener noreferrer">Selector de Ideas</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un selector aleatorio de ideas para desarrollar en web, apps y sistemas, siempre con una idea nueva.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center font-bold text-xs">6</div><span class="text-xs text-gray-500">luizabeths.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://luizabeths.vercel.app" target="_blank" rel="noopener noreferrer">Portal de Clientes Personalizado</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Portal personalizado de Luizabeth&apos;s Studios para atender clientes y llevar sus registros de pedidos.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y41lRDjllpyJbHrDeyZpQDu1BLP2Kb.png" alt="Portal de clientes de Luizabeth's Studios" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs">7</div><span class="text-xs text-gray-500">clientes-chi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://clientes-chi.vercel.app" target="_blank" rel="noopener noreferrer">Luizabeth&apos;s.studios</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">La web de mi empresa, totalmente personalizada y funcional para buscar y ver el catálogo necesario.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold text-xs">8</div><span class="text-xs text-gray-500">luizabeth.neocities.org</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://luizabeth.neocities.org" target="_blank" rel="noopener noreferrer">Mi Blog</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Mi blog personal armado en Neocities, en constante cambio.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-xs">9</div><span class="text-xs text-gray-500">camara-chi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://camara-chi.vercel.app" target="_blank" rel="noopener noreferrer">Cámara con temática de Outlast</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una cámara inspirada en la icónica cámara de Outlast.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xs">10</div><span class="text-xs text-gray-500">web-reproductora.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://web-reproductora.vercel.app" target="_blank" rel="noopener noreferrer">Reproductor de Música</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Reproductor web conectable con la API de Spotify, acompañado por una app de Electron.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1uOFMdP0Ah42OguI0TKKrV6mKLm9YG.png" alt="Reproductor web de música" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">11</div><span class="text-xs text-gray-500">pomodoro-adet.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://pomodoro-adet.vercel.app" target="_blank" rel="noopener noreferrer">Pomodoro</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un pomodoro sencillo con una aplicación de escritorio equivalente.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center font-bold text-xs">12</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Compresor de Imágenes</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una aplicación de escritorio para comprimir imágenes.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Dl4fMcezx50B8c55xuKWgBNaQaM8Xc.png" alt="Compresor masivo de imágenes" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-xs">13</div><span class="text-xs text-gray-500">proyecto-de-vida-nu.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://proyecto-de-vida-nu.vercel.app" target="_blank" rel="noopener noreferrer">Proyecto de Vida 1</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Uno de los proyectos de vida que hice para mi escuela.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center font-bold text-xs">14</div><span class="text-xs text-gray-500">ghc-psi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://ghc-psi.vercel.app" target="_blank" rel="noopener noreferrer">Proyecto Escolar</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una página web para mi proyecto escolar antes de salir a cuarto año.</p></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xs">15</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Dashboard con Base de Datos</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una aplicación de escritorio que recopila datos y los guarda en una base de datos de Firebase.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RVKzRjGkqqQcQ1a5PWDvoIfZSkcoEh.png" alt="Dashboard administrativo conectado a Firebase" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-fuchsia-100 text-fuchsia-600 rounded-full flex items-center justify-center font-bold text-xs">16</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Editor (Markdown)</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un editor Markdown sencillo.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BgktOysGJZftsYcgmpjjc2EzrAHflx.png" alt="Editor Markdown DevNotes" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
-                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-xs">17</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">La App de Clientes</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">La aplicación de escritorio de la web de Luizabeth&apos;s Studios para mejorar la experiencia al solicitar un trabajo.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center font-bold text-xs">5</div><span class="text-xs text-gray-500">selector-ivory.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://selector-ivory.vercel.app" target="_blank" rel="noopener noreferrer">Selector de Ideas</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un selector aleatorio de ideas para desarrollar en web, apps y sistemas, siempre con una idea nueva.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center font-bold text-xs">6</div><span class="text-xs text-gray-500">luizabeths.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://luizabeths.vercel.app" target="_blank" rel="noopener noreferrer">Portal de Clientes Personalizado</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Portal personalizado de Luizabeth&apos;s Studios para atender clientes y llevar sus registros de pedidos.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y41lRDjllpyJbHrDeyZpQDu1BLP2Kb.png" alt="Portal de clientes de Luizabeth's Studios" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs">7</div><span class="text-xs text-gray-500">clientes-chi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://clientes-chi.vercel.app" target="_blank" rel="noopener noreferrer">Luizabeth&apos;s.studios</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">La web de mi empresa, totalmente personalizada y funcional para buscar y ver el catálogo necesario.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center font-bold text-xs">8</div><span class="text-xs text-gray-500">luizabeth.neocities.org</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://luizabeth.neocities.org" target="_blank" rel="noopener noreferrer">Mi Blog</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Mi blog personal armado en Neocities, en constante cambio.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center font-bold text-xs">9</div><span class="text-xs text-gray-500">camara-chi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://camara-chi.vercel.app" target="_blank" rel="noopener noreferrer">Cámara con temática de Outlast</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una cámara inspirada en la icónica cámara de Outlast.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xs">10</div><span class="text-xs text-gray-500">web-reproductora.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://web-reproductora.vercel.app" target="_blank" rel="noopener noreferrer">Reproductor de Música</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Reproductor web conectable con la API de Spotify, acompañado por una app de Electron.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1uOFMdP0Ah42OguI0TKKrV6mKLm9YG.png" alt="Reproductor web de música" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">11</div><span class="text-xs text-gray-500">pomodoro-adet.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://pomodoro-adet.vercel.app" target="_blank" rel="noopener noreferrer">Pomodoro</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un pomodoro sencillo con una aplicación de escritorio equivalente.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-amber-200 transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center font-bold text-xs">12</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Compresor de Imágenes</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una aplicación de escritorio para comprimir imágenes.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Dl4fMcezx50B8c55xuKWgBNaQaM8Xc.png" alt="Compresor masivo de imágenes" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-xs">13</div><span class="text-xs text-gray-500">proyecto-de-vida-nu.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://proyecto-de-vida-nu.vercel.app" target="_blank" rel="noopener noreferrer">Proyecto de Vida 1</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Uno de los proyectos de vida que hice para mi escuela.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center font-bold text-xs">14</div><span class="text-xs text-gray-500">ghc-psi.vercel.app</span></div><h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1"><a href="https://ghc-psi.vercel.app" target="_blank" rel="noopener noreferrer">Proyecto Escolar</a></h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una página web para mi proyecto escolar antes de salir a cuarto año.</p></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-amber-200 transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xs">15</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Dashboard con Base de Datos</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Una aplicación de escritorio que recopila datos y los guarda en una base de datos de Firebase.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RVKzRjGkqqQcQ1a5PWDvoIfZSkcoEh.png" alt="Dashboard administrativo conectado a Firebase" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-amber-200 transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-fuchsia-100 text-fuchsia-600 rounded-full flex items-center justify-center font-bold text-xs">16</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">Editor (Markdown)</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">Un editor Markdown sencillo.</p><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BgktOysGJZftsYcgmpjjc2EzrAHflx.png" alt="Editor Markdown DevNotes" class="mt-4 w-full max-h-56 object-cover rounded-xl border border-gray-100" loading="lazy"></div>
+                    <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-amber-200 transition-all cursor-pointer" onclick="showToast('Disculpa pero este proyecto no tiene enlace')"><div class="flex items-center gap-3 mb-2"><div class="w-6 h-6 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center font-bold text-xs">17</div><span class="text-xs text-gray-500">sin enlace</span></div><h3 class="text-[20px] google-blue leading-tight font-semibold mb-1">La App de Clientes</h3><p class="text-[14px] google-dark-gray leading-relaxed font-light">La aplicación de escritorio de la web de Luizabeth&apos;s Studios para mejorar la experiencia al solicitar un trabajo.</p></div>
                 </div>
 
                 <!-- 1. LULU ES PROGRAMADORA DE WEBS -->
-                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all">
+                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-6 h-6 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center font-bold text-xs">1</div>
                         <span class="text-xs text-gray-500 hover:underline cursor-pointer">programmersforeveryone11-blip.github.io &gt; lulu-es-programadora-de-webs</span>
@@ -712,7 +886,7 @@
                 </div>
 
                 <!-- 2. ARTHUR MORGAN -->
-                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all mt-4">
+                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all mt-4">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs">2</div>
                         <span class="text-xs text-gray-500 hover:underline cursor-pointer">programmersforeveryone11-blip.github.io &gt; arthur-morgan</span>
@@ -726,7 +900,7 @@
                 </div>
 
                 <!-- 3. ESTUDIANTES DE MEDIA TECNICA CALASANZ -->
-                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all mt-4">
+                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md hover:border-blue-200 transition-all mt-4">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xs">3</div>
                         <span class="text-xs text-gray-500 hover:underline cursor-pointer">programmersforeveryone11-blip.github.io &gt; estudiantes-de-media-tecnica-calasanz</span>
@@ -739,22 +913,8 @@
                     </p>
                 </div>
 
-                <!-- 4. CODE ANALYST DASHBOARD -->
-                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-5 hover:shadow-md transition-all mt-4 mb-10">
-                    <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
-                        <div class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xs">4</div>
-                        <span class="text-xs text-gray-500 hover:underline cursor-pointer">programmersforeveryone11-blip.github.io &gt; code</span>
-                    </div>
-                    <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-1">
-                        <a href="https://programmersforeveryone11-blip.github.io/code/" target="_blank">Data Analyst & SaaS Dashboard - Git Codespaces 📊</a>
-                    </h3>
-                    <p class="text-[14px] google-dark-gray leading-relaxed font-light">
-                        Un trabajo avanzado diseñado utilizando Git y GitHub Codespaces. Consiste en una plataforma SaaS interactiva optimizada para el análisis de datos mediante un panel gráfico de control (dashboard).
-                    </p>
-                </div>
-
                 <!-- JUEGO DE ADIVINAR EL LIBRO -->
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-indigo-150 rounded-2xl p-6 shadow-xs mb-6 group/game">
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-indigo-150 rounded-2xl p-6 shadow-xs mb-6 mt-8 group/game">
                     <div class="flex items-center space-x-2 text-xs text-indigo-600 font-bold uppercase tracking-wider mb-2">
                         <span class="bg-indigo-100 px-2 py-0.5 rounded">Proyecto Destacado</span>
                         <span>•</span>
@@ -765,7 +925,6 @@
                         Ponte a prueba con este juego interactivo de adivinar títulos de la literatura juvenil y clásica. ¡Consigue la puntuación más alta!
                     </p>
                     
-                    <!-- Contenedor del Juego de Libros -->
                     <div class="bg-white rounded-xl p-4 sm:p-5 border border-slate-200">
                         <div class="flex justify-between items-center mb-4 text-xs font-bold text-indigo-900 border-b border-slate-100 pb-2">
                             <span id="book-score-label">PUNTOS: <span class="text-indigo-600" id="book-score">0</span></span>
@@ -775,7 +934,6 @@
                             <p id="book-clue" class="text-sm text-slate-700 italic font-medium">Cargando juego...</p>
                         </div>
                         <div id="book-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                            <!-- Opciones inyectadas por JS -->
                         </div>
                         <div class="flex justify-between items-center mt-4 pt-3 border-t border-slate-100">
                             <button onclick="resetBookGame()" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold uppercase tracking-wider focus:outline-none">Reiniciar</button>
@@ -796,7 +954,6 @@
                         Adivina el cantante o banda según las pistas de sus temas más famosos. ¡Diviértete con este diseño retro de tablero de ajedrez pastel!
                     </p>
                     
-                    <!-- Contenedor del Juego de Música -->
                     <div class="bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-5 border border-yellow-300 relative z-10">
                         <div class="flex justify-between items-center mb-4 text-xs font-bold text-yellow-900 border-b border-yellow-100 pb-2">
                             <span>PUNTOS: <span class="text-yellow-600" id="music-score">0</span></span>
@@ -806,7 +963,6 @@
                             <p id="music-clue" class="text-sm text-yellow-950 italic font-medium">Cargando pistas...</p>
                         </div>
                         <div id="music-options" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                            <!-- Opciones inyectadas por JS -->
                         </div>
                         <div class="flex justify-between items-center mt-4 pt-3 border-t border-yellow-100">
                             <button onclick="resetMusicGame()" class="text-xs text-yellow-700 hover:text-yellow-900 font-semibold uppercase tracking-wider focus:outline-none">Reiniciar</button>
@@ -817,7 +973,7 @@
             `,
             'Estudios': `
                 <!-- Colegio Calasanz Valencia Link Directo -->
-                <div class="group mb-6">
+                <div class="group mb-6 p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-blue-50 rounded-full flex items-center justify-center font-bold text-xs text-blue-600">C</div>
                         <div class="flex flex-col">
@@ -843,8 +999,6 @@
                     </h4>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <!-- Certificado 1: Python -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-green-300 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="flex justify-between items-start mb-4">
@@ -862,7 +1016,6 @@
                             </div>
                         </div>
 
-                        <!-- Certificado 2: Freelance -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-green-300 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="flex justify-between items-start mb-4">
@@ -880,7 +1033,6 @@
                             </div>
                         </div>
 
-                        <!-- Certificado 3: Bolsa de Valores -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-green-300 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="flex justify-between items-start mb-4">
@@ -897,12 +1049,11 @@
                                 <span class="text-[10px] text-gray-500 mt-1 font-semibold">Adrián Sáenz (CEO Skilio)</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
                 <!-- Enlace interactivo que abre el modal verde Tinkerbell con estrellas -->
-                <div class="group mt-10 pt-6 border-t border-gray-150">
+                <div class="group mt-10 pt-6 border-t border-gray-150 p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-green-50 rounded-full flex items-center justify-center font-bold text-xs text-green-600">L</div>
                         <div class="flex flex-col">
@@ -945,108 +1096,97 @@
                     </form>
                 </div>
 
-                <!-- Tarjetas de Enlaces de Contacto Rediseñadas -->
+                <!-- Tarjetas de Enlaces de Contacto -->
                 <div class="mt-12">
                     <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-2 text-center text-slate-800">O encuéntrame directamente en mis redes</h4>
                     <p class="text-xs text-slate-500 text-center mb-6 max-w-md mx-auto">
                         <strong>Nota de Emprendimiento:</strong> Los métodos de contacto provistos a continuación están destinados de forma exclusiva a fines de emprendimiento, propuestas comerciales o alianzas de marca sanas y seguras.
                     </p>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                        
-                        <!-- WhatsApp -->
                         <a href="https://wa.me/584228028774" target="_blank" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-green-300 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-[#25D366] flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.66.986 3.287 1.487 4.912 1.488 5.405 0 9.803-4.393 9.806-9.799.002-2.62-1.018-5.084-2.871-6.938C16.638 2.052 14.175 1.03 11.554 1.03c-5.412 0-9.81 4.393-9.813 9.801-.001 1.77.487 3.5 1.411 5.013l-.935 3.41 3.491-.915z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">WhatsApp</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">04228028774</span>
+                            <h4 class="text-xs font-bold text-gray-800">WhatsApp</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">04228028774</p>
                         </a>
 
-                        <!-- Telegram -->
                         <a href="https://t.me/+584228028774" target="_blank" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-sky-200 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-[#0088cc] flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm4.58-13.66l-1.63 7.67c-.12.53-.44.66-.88.41l-2.48-1.83-1.2 1.15c-.13.13-.24.24-.5.24l.18-2.52 4.58-4.14c.2-.18-.04-.28-.3-.1l-5.67 3.57-2.44-.76c-.53-.17-.54-.53.11-.79l9.53-3.67c.44-.16.83.11.68.83z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">Telegram</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">Chat Directo</span>
+                            <h4 class="text-xs font-bold text-gray-800">Telegram</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">Chat Directo</p>
                         </a>
 
-                        <!-- GitHub -->
                         <a href="https://github.com/programmersforeveryone11-blip" target="_blank" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-gray-300 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-gray-900 flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">GitHub</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">@programmersforeveryone11-blip</span>
+                            <h4 class="text-xs font-bold text-gray-800">GitHub</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">@programmersforeveryone11-blip</p>
                         </a>
 
-                        <!-- Instagram -->
                         <a href="https://www.instagram.com/luizabeths_studios/" target="_blank" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-pink-200 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">Instagram</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">@luizabeths_studios</span>
+                            <h4 class="text-xs font-bold text-gray-800">Instagram</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">@luizabeths_studios</p>
                         </a>
 
-                        <!-- TikTok -->
                         <a href="https://www.tiktok.com/@luizabeths_studios" target="_blank" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-cyan-200 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-black flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.525.01c1.31 0 2.5.43 3.47 1.13.04-.15.08-.3.12-.45h2.15v2.24c-.67-.01-1.33-.11-1.97-.31a4.93 4.93 0 01-3.13-2.58l-.04.14v7.7c0 2.56-2.07 4.63-4.63 4.63a4.63 4.63 0 01-4.63-4.63c0-2.56 2.07-4.63 4.63-4.63.42 0 .83.06 1.22.17V1.7c-.4-.06-.8-.09-1.22-.09a7.35 7.35 0 00-7.35 7.35 7.35 0 007.35 7.35 7.35 0 007.35-7.35V2.32c1.23.95 2.76 1.52 4.43 1.52v-2.1c-1.23 0-2.35-.45-3.23-1.2-.28-.24-.52-.51-.73-.81z"/>
+                                    <path d="M12.525.01c1.31 0 2.5.43 3.47 1.13.04-.15.08-.3.12-.45h2.15v2.24c-.67-.01-1.33-.11-1.97-.31a4.93 4.93 0 01-3.13-2.58l-.04.14v7.7c0 2.56-2.07 4.63-4.63 4.63a4.63 4.63 0 01-4.63-4.63c0-2.56 2.07-4.63 4.63-4.63.42 0 .83.06 1.22.17V1.7c-.4-.06-.8-.09-1.22-.09a7.35 7.35 0 00-7.35 7.35 7.35 7.35 0 007.35 7.35 7.35 7.35 0 007.35-7.35V2.32c1.23.95 2.76 1.52 4.43 1.52v-2.1c-1.23 0-2.35-.45-3.23-1.2-.28-.24-.52-.51-.73-.81z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">TikTok</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">@luizabeths_studios</span>
+                            <h4 class="text-xs font-bold text-gray-800">TikTok</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">@luizabeths_studios</p>
                         </a>
 
-                        <!-- YouTube (Simulado no disponible) -->
                         <button onclick="showToast('El canal de YouTube de Luizabeth aún no está habilitado al público. ¡Muy pronto! 🎥')" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-red-200 transition-all text-center group cursor-pointer focus:outline-none">
                             <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 00-2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">YouTube</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">No Habilitado</span>
+                            <h4 class="text-xs font-bold text-gray-800">YouTube</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">Canal no habilitado aún</p>
                         </button>
 
-                        <!-- Upwork (Simulado no disponible) -->
                         <button onclick="showToast('La cuenta de Upwork de Luizabeth aún no está habilitada. ¡Próximamente! 💼')" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-green-200 transition-all text-center group cursor-pointer focus:outline-none">
                             <div class="w-12 h-12 rounded-xl bg-[#14a800] flex items-center justify-center text-white mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <span class="font-bold text-lg">up</span>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">Upwork</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">No Habilitado</span>
+                            <h4 class="text-xs font-bold text-gray-800">Upwork</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">Perfil no habilitado aún</p>
                         </button>
 
-                        <!-- Gmail -->
                         <a href="mailto:luizabethsstudios@gmail.com" class="flex flex-col items-center p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-red-150 transition-all text-center group">
                             <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-red-600 mb-2 shadow-xs group-hover:scale-105 transition-transform">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-1.29 1.454-2.032 2.514-1.302L12 10.74l9.486-7.585c1.06-.729 2.514.013 2.514 1.302z"/>
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-gray-800">Gmail</span>
-                            <span class="text-[10px] text-gray-400 mt-0.5">Correo directo</span>
+                            <h4 class="text-xs font-bold text-gray-800">Gmail</h4>
+                            <p class="text-[10px] text-gray-400 mt-0.5">luizabethsstudios@gmail.com</p>
                         </a>
-
                     </div>
                 </div>
             `,
             'SobreMí': `
-                <!-- PRIMERA PARTE: RESUMEN BIOGRÁFICO DE LUIZABETH -->
                 <div class="flex flex-col md:flex-row gap-6 items-start mb-10">
                     <div class="flex-grow space-y-4">
-                        <div class="group">
+                        <div class="group p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                             <span class="text-xs text-gray-500 hover:underline cursor-pointer">https://luizabeth.dev &gt; sobre-mi &gt; biografia</span>
                             <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-medium mb-1">
                                 <a href="#">¿Quién es Luizabeth? - Desarrolladora y Diseñadora Digital</a>
@@ -1055,14 +1195,13 @@
                                 Soy Luizabeth, tengo 15 años. Últimamente he estado muy enfrascada en esto de crear cosas a partir de un código, he hecho muchos cursos para poder decir que soy desarrolladora y diseñadora web UI/UX. Soy una persona de espíritu libre y busco reflejar mi esencia en cada proyecto que realizo. Utilizo la inteligencia artificial para impulsar el rendimiento y obtener más conocimiento.
                             </p>
                         </div>
-                        <div class="group">
+                        <div class="group p-3 -mx-3 rounded-2xl hover:bg-slate-50/80 transition-colors">
                             <h4 class="text-sm font-semibold text-gray-800 mb-1">Impacto y Compromiso Visual</h4>
                             <p class="text-[14px] google-dark-gray leading-relaxed font-light">
                                 Me encargo de diseñar la experiencia de tus usuarios para que destaques, haciendo trabajos excelentes y accesibles para todo público.
                             </p>
                         </div>
                     </div>
-                    <!-- Mock Knowledge Panel stylized like Google -->
                     <div class="w-full md:w-[280px] bg-gray-50 border border-gray-200 rounded-2xl p-5 shrink-0">
                         <h4 class="text-lg font-medium text-gray-900 mb-2">Ficha de Luizabeth</h4>
                         <p class="text-xs text-gray-500 mb-4">Desarrolladora Web / UI Designer</p>
@@ -1075,18 +1214,14 @@
                     </div>
                 </div>
 
-                <!-- SECCIÓN PERSONALIZADA "ABOUT ME" (Con foto real de Luizabeth) -->
+                <!-- SECCIÓN PERSONALIZADA "ABOUT ME" -->
                 <div class="mt-12 bg-checkerboard rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-inner border border-pink-100 flex flex-col md:flex-row gap-8 items-center">
-                    
-                    <!-- Retro Graphic Big Header -->
                     <div class="absolute top-2 left-6 right-6 pointer-events-none select-none text-center md:text-left z-0 opacity-15">
                         <h2 class="text-poster text-6xl sm:text-8xl md:text-[140px] text-gray-900 leading-none">ABOUT ME</h2>
                     </div>
 
-                    <!-- Left side: Photobox with border shadow containing custom user image -->
                     <div class="w-[240px] h-[300px] shrink-0 bg-white p-4 pb-12 rounded-xl shadow-xl rotate-1 hover:rotate-0 transition-transform duration-300 z-10 border border-gray-200">
                         <div class="w-full h-[220px] bg-indigo-50 rounded-lg overflow-hidden flex items-center justify-center relative shadow-inner border border-gray-100">
-                            <!-- Foto Real cargada de Luizabeth Contreras -->
                             <img src="Untitled.png" alt="Luizabeth Contreras" class="w-full h-full object-cover">
                         </div>
                         <div class="mt-3.5 text-center">
@@ -1094,7 +1229,6 @@
                         </div>
                     </div>
 
-                    <!-- Right side: Bio card details with user's custom text -->
                     <div class="flex-grow bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-pink-50/50 z-10 max-w-lg">
                         <p class="text-[11px] text-pink-600 font-bold tracking-widest uppercase mb-1.5">CREATING STORIES WITH PIXELS</p>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4 font-serif">¡Hola! Soy Luizabeth</h3>
@@ -1106,22 +1240,18 @@
                         </p>
                         <p class="text-xs font-semibold text-pink-600 italic">"El diseño es magia, el desarrollo es real. creemos algo juntos"</p>
                     </div>
-
                 </div>
 
-                <!-- SECCIÓN DEDICADA A LA NACIONALIDAD (Venezuela Frutiger Metro Style) -->
+                <!-- SECCIÓN DEDICADA A LA NACIONALIDAD -->
                 <div class="mt-12 bg-slate-900 rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-slate-800 shadow-xl flex flex-col md:flex-row gap-8 items-center text-white">
-                    <!-- Bandera abstracta y dinámica de fondo (CSS puro de Venezuela Frutiger metro flag.jpg) -->
                     <div class="absolute inset-0 z-0 opacity-20 pointer-events-none flex flex-col">
-                        <div class="h-1/3 bg-[#fcc300]"></div> <!-- Amarillo -->
+                        <div class="h-1/3 bg-[#fcc300]"></div>
                         <div class="h-1/3 bg-[#0038a8] relative flex items-center justify-center">
-                            <!-- Arco de estrellas simulado -->
                             <div class="absolute border-2 border-dashed border-white/40 w-32 h-32 rounded-full -top-16"></div>
                         </div>
-                        <div class="h-1/3 bg-[#cf142b]"></div> <!-- Rojo -->
+                        <div class="h-1/3 bg-[#cf142b]"></div>
                     </div>
                     
-                    <!-- Elementos gráficos de Frutiger Metro con curvas abstractas -->
                     <div class="absolute inset-0 z-0 pointer-events-none opacity-10">
                         <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <path d="M 0,50 Q 25,30 50,50 T 100,50" fill="none" stroke="#ffffff" stroke-width="1.5" />
@@ -1131,14 +1261,12 @@
                         </svg>
                     </div>
 
-                    <!-- Lado izquierdo: Sello de Identidad / Orgullo -->
                     <div class="shrink-0 w-24 h-24 rounded-full bg-yellow-400 text-slate-900 font-extrabold flex flex-col items-center justify-center shadow-lg border-4 border-white/25 z-10 animate-bounce select-none">
                         <span class="text-xs tracking-wider">ORGULLO</span>
                         <span class="text-xl">100%</span>
                         <span class="text-xs">VENEZOLANA</span>
                     </div>
 
-                    <!-- Lado derecho: Descripción de raíces -->
                     <div class="flex-grow z-10 bg-slate-950/80 backdrop-blur-md p-6 rounded-2xl border border-white/10">
                         <div class="flex items-center space-x-2.5 mb-3">
                             <span class="text-xl">🇻🇪</span>
@@ -1149,88 +1277,9 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- Videos de YouTube removidos por solicitud -->
-                <div class="hidden mt-12 border-t border-gray-100 pt-8">
-                    <h3 class="text-lg font-medium text-gray-900 mb-6 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 00-2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                        Videos Recientes (Mi Blog Personal en YouTube)
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <!-- Miniatura 1 -->
-                        <a href="https://youtube.com" target="_blank" class="group/video block bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-red-100 transition-all">
-                            <div class="relative aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-tr from-slate-800 to-indigo-900 flex flex-col justify-center items-center p-4">
-                                    <span class="text-white text-xs font-bold tracking-wider uppercase mb-1 bg-blue-600/80 px-2 py-0.5 rounded">Tutorial</span>
-                                    <span class="text-white text-center font-bold text-sm leading-tight px-2 drop-shadow-md">Mi primer proyecto web de cero</span>
-                                </div>
-                                <div class="absolute w-12 h-12 rounded-full bg-black/75 flex items-center justify-center text-white scale-100 group-hover/video:scale-110 transition-transform">
-                                    <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                                <span class="absolute bottom-2 right-2 bg-black/85 text-[10px] text-white font-medium px-1.5 py-0.5 rounded">10:15</span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-semibold text-gray-900 text-sm group-hover/video:text-blue-600 transition-colors line-clamp-2">
-                                    Cómo crear tu primer Portfolio Web usando HTML5 y Tailwind CSS de forma fácil
-                                </h4>
-                                <p class="text-xs text-gray-400 mt-1">Luizabeth Blog • 1.2k vistas • hace 3 días</p>
-                            </div>
-                        </a>
-
-                        <!-- Miniatura 2 -->
-                        <a href="https://youtube.com" target="_blank" class="group/video block bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-red-100 transition-all">
-                            <div class="relative aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-tr from-violet-800 to-fuchsia-900 flex flex-col justify-center items-center p-4">
-                                    <span class="text-white text-xs font-bold tracking-wider uppercase mb-1 bg-purple-600/80 px-2 py-0.5 rounded">UI/UX</span>
-                                    <span class="text-white text-center font-bold text-sm leading-tight px-2 drop-shadow-md">¿Cómo elegir colores para tu web?</span>
-                                </div>
-                                <div class="absolute w-12 h-12 rounded-full bg-black/75 flex items-center justify-center text-white scale-100 group-hover/video:scale-110 transition-transform">
-                                    <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                                <span class="absolute bottom-2 right-2 bg-black/85 text-[10px] text-white font-medium px-1.5 py-0.5 rounded">08:42</span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-semibold text-gray-900 text-sm group-hover/video:text-blue-600 transition-colors line-clamp-2">
-                                    La Psicología del Color en el Desarrollo de Interfaces modernas: Guía Básica
-                                </h4>
-                                <p class="text-xs text-gray-400 mt-1">Luizabeth Blog • 950 vistas • hace 1 semana</p>
-                            </div>
-                        </a>
-
-                        <!-- Miniatura 3 -->
-                        <a href="https://youtube.com" target="_blank" class="group/video block bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-red-100 transition-all">
-                            <div class="relative aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-tr from-cyan-800 to-emerald-900 flex flex-col justify-center items-center p-4">
-                                    <span class="text-white text-xs font-bold tracking-wider uppercase mb-1 bg-emerald-600/80 px-2 py-0.5 rounded">Vlog</span>
-                                    <span class="text-white text-center font-bold text-sm leading-tight px-2 drop-shadow-md">Mi rutina de estudio en desarrollo</span>
-                                </div>
-                                <div class="absolute w-12 h-12 rounded-full bg-black/75 flex items-center justify-center text-white scale-100 group-hover/video:scale-110 transition-transform">
-                                    <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                                <span class="absolute bottom-2 right-2 bg-black/85 text-[10px] text-white font-medium px-1.5 py-0.5 rounded">12:30</span>
-                            </div>
-                            <div class="p-4">
-                                <h4 class="font-semibold text-gray-900 text-sm group-hover/video:text-blue-600 transition-colors line-clamp-2">
-                                    Estudiar Programación y Diseño de forma organizada: Consejos y Hábitos
-                                </h4>
-                                <p class="text-xs text-gray-400 mt-1">Luizabeth Blog • 1.5k vistas • hace 2 semanas</p>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
             `,
             'Servicios': `
-                <div class="group mb-8">
+                <div class="mb-8">
                     <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
                         <div class="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">S</div>
                         <span class="text-xs text-gray-500 hover:underline cursor-pointer">https://luizabeth.dev &gt; servicios &gt; catalogo</span>
@@ -1242,10 +1291,7 @@
                         Ofrezco un abanico completo de soluciones de alta tecnología y diseño adaptativo a la medida para materializar tus ideas:
                     </p>
 
-                    <!-- Lista Premium de los 5 Servicios del Portfolio -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <!-- 1. WEBS -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
@@ -1254,21 +1300,15 @@
                                     </svg>
                                 </div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2 group-hover/card:text-blue-600 transition-colors">1. Webs a Medida</h4>
-                                <div class="text-xs text-gray-500 space-y-1 mb-4">
-                                    <span class="block">• Landing pages de alta conversión</span>
-                                    <span class="block">• SaaS webs modernas y fluidas</span>
-                                    <span class="block">• Portfolios interactivos creativos</span>
-                                    <span class="block">• E-Commerce (Tiendas virtuales)</span>
-                                    <span class="block">• Blogs optimizados para lectores</span>
-                                    <span class="block">• Webs corporativas con estilo retro</span>
-                                </div>
+                                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                                    Landing pages de alta conversión, SaaS webs modernas, portfolios interactivos, tiendas E-Commerce, blogs optimizados y webs con estilo retro.
+                                </p>
                             </div>
                             <button onclick="showToast('Solicitando información sobre Desarrollo de Webs...')" class="mt-4 bg-gray-50 hover:bg-blue-600 hover:text-white text-xs text-blue-600 font-semibold py-2 px-4 rounded-xl transition-all self-start">
                                 Cotizar Servicio
                             </button>
                         </div>
 
-                        <!-- 2. APPS -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
@@ -1277,18 +1317,15 @@
                                     </svg>
                                 </div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2 group-hover/card:text-blue-600 transition-colors">2. Aplicaciones (Apps)</h4>
-                                <div class="text-xs text-gray-500 space-y-1 mb-4">
-                                    <span class="block">• Apps móviles nativas para iOS y Android</span>
-                                    <span class="block">• Aplicaciones Web Progresivas (PWA)</span>
-                                    <span class="block">• Single Page Applications (SPA) fluidas</span>
-                                </div>
+                                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                                    Apps móviles nativas para iOS y Android, Aplicaciones Web Progresivas (PWA) y Single Page Applications (SPA) fluidas.
+                                </p>
                             </div>
                             <button onclick="showToast('Solicitando información sobre Desarrollo de Apps...')" class="mt-4 bg-gray-50 hover:bg-blue-600 hover:text-white text-xs text-blue-600 font-semibold py-2 px-4 rounded-xl transition-all self-start">
                                 Cotizar Servicio
                             </button>
                         </div>
 
-                        <!-- 3. BOTS DE AI -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
@@ -1297,29 +1334,25 @@
                                     </svg>
                                 </div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2 group-hover/card:text-blue-600 transition-colors">3. Bots con Inteligencia Artificial</h4>
-                                <div class="text-xs text-gray-500 space-y-1 mb-4">
-                                    <span class="block">• Bots de automatización para Telegram</span>
-                                    <span class="block">• Integración inteligente en WhatsApp</span>
-                                    <span class="block">• Automatizadores interactivos de TikTok</span>
-                                    <span class="block">• Filtros y respuestas inteligentes para Gmail</span>
-                                </div>
+                                <p class="text-xs text-gray-500 leading-relaxed mb-4">
+                                    Bots de automatización para Telegram, integración inteligente en WhatsApp, automatizadores de TikTok y respuestas inteligentes en Gmail.
+                                </p>
                             </div>
                             <button onclick="showToast('Solicitando información sobre Bots de IA...')" class="mt-4 bg-gray-50 hover:bg-blue-600 hover:text-white text-xs text-blue-600 font-semibold py-2 px-4 rounded-xl transition-all self-start">
                                 Cotizar Servicio
                             </button>
                         </div>
 
-                        <!-- 4. SOPORTE TÉCNICO Y WEB "NO-CODE" -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31(2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                     </svg>
                                 </div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2 group-hover/card:text-blue-600 transition-colors">4. Soporte y Web "No-Code"</h4>
                                 <p class="text-xs text-gray-500 leading-relaxed font-light mb-4">
-                                    Soporte técnico, mantenimiento y estructuración de sitios ágiles en plataformas modernas como WordPress, Webflow and Shopify para soluciones prontas.
+                                    Soporte técnico, mantenimiento y estructuración de sitios ágiles en plataformas modernas como WordPress, Webflow y Shopify para soluciones prontas.
                                 </p>
                             </div>
                             <button onclick="showToast('Solicitando información sobre Soporte Técnico...')" class="mt-4 bg-gray-50 hover:bg-blue-600 hover:text-white text-xs text-blue-600 font-semibold py-2 px-4 rounded-xl transition-all self-start">
@@ -1327,7 +1360,6 @@
                             </button>
                         </div>
 
-                        <!-- 5. IMPULSO DIGITAL -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-blue-100 transition-all flex flex-col justify-between group/card">
                             <div>
                                 <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
@@ -1344,12 +1376,11 @@
                                 Cotizar Servicio
                             </button>
                         </div>
-
                     </div>
                 </div>
             `,
             'StackTecnológico': `
-                <div class="group">
+                <div>
                     <span class="text-xs text-gray-500">https://luizabeth.dev &gt; stack &gt; herramientas-desarrollo</span>
                     <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-medium mb-2">
                         <a href="#" onclick="showToast('Explorando mi Stack Tecnológico...'); return false;">Kit de Herramientas Digitales y Tecnologías de Programación</a>
@@ -1358,10 +1389,7 @@
                         Tecnologías con las que construyo mundos digitales interactivos, adaptables y dinámicos a diario. Haz clic en cualquiera de ellas para conocer más detalles:
                     </p>
                     
-                    <!-- Grid de Tarjetas de Tecnologías (Tech Stack Grid Cards) -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        
-                        <!-- Tarjeta 1: HTML5 & CSS3 -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-orange-100 transition-all group/card cursor-pointer" onclick="showToast('HTML5 & CSS3: Estructuración semántica y estilos avanzados responsivos.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
@@ -1386,7 +1414,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 2: JavaScript -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-yellow-100 transition-all group/card cursor-pointer" onclick="showToast('JavaScript: Lógica del cliente, manipulación del DOM y APIs.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center text-yellow-600">
@@ -1411,7 +1438,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 3: React.js -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-sky-100 transition-all group/card cursor-pointer" onclick="showToast('React.js: Creación de componentes reutilizables y reactivos.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600">
@@ -1439,7 +1465,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 4: Tailwind CSS -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-indigo-100 transition-all group/card cursor-pointer" onclick="showToast('Tailwind CSS: Maquetación atómica moderna y ultra rápida.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
@@ -1464,7 +1489,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 5: Figma & Canva -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-purple-100 transition-all group/card cursor-pointer" onclick="showToast('Figma & Canva: Prototipado UX/UI y diseño de recursos visuales.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
@@ -1490,7 +1514,6 @@
                             </div>
                         </div>
 
-                        <!-- Tarjeta 6: Git & GitHub -->
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-slate-150 transition-all group/card cursor-pointer" onclick="showToast('Git & GitHub: Control de versiones de código y despliegue continuo.')">
                             <div class="flex items-center space-x-3.5 mb-3">
                                 <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-700">
@@ -1504,7 +1527,7 @@
                                 </div>
                             </div>
                             <p class="text-xs text-gray-500 leading-relaxed font-light mb-4">
-                                Colaboración en equipos de programación mediante ramas, resolución de conflictos, subida de proyectos y automatización con GitHub Pages.
+                                Colaboración en programación mediante ramas, resolución de conflictos, subida de proyectos y automatización con GitHub Pages.
                             </p>
                             <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
                                 <div class="bg-slate-700 h-full rounded-full" style="width: 80%"></div>
@@ -1514,12 +1537,11 @@
                                 <span class="font-medium text-gray-600">Intermedio</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             `,
             'ProcesodeTrabajo': `
-                <div class="group mb-4">
+                <div class="mb-4">
                     <span class="text-xs text-gray-500">https://luizabeth.dev &gt; proceso &gt; diagrama-creacion</span>
                     <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-medium mb-4">
                         <a href="#" onclick="toggleProcessView('diagram'); return false;">Mi Proceso de Trabajo: Cómo Creo una Web desde Cero 🗺️</a>
@@ -1529,7 +1551,6 @@
                     </p>
                 </div>
 
-                <!-- TABS PARA ALTERNAR VISTAS -->
                 <div class="flex space-x-2 mb-6 bg-gray-100 p-1 rounded-xl max-w-sm select-none">
                     <button id="btn-view-diagram" onclick="toggleProcessView('diagram')" class="flex-grow py-2 px-3 rounded-lg text-xs font-bold transition-all bg-white text-blue-600 shadow-xs">
                         🗺️ Diagrama de Flujo
@@ -1539,115 +1560,92 @@
                     </button>
                 </div>
 
-                <!-- CONTENEDOR 1: DIAGRAMA DE FLUJO INTERACTIVO -->
                 <div id="process-diagram-container" class="space-y-6">
                     <div class="grid grid-cols-1 gap-4 relative">
-                        
-                        <!-- Paso 1 -->
                         <div onclick="selectDiagramStep(1)" id="diagram-step-1" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                1
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">1</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-indigo-600 transition-colors">
                                     Conceptualización inteligente & IA Copilot <span class="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded">Fase 1</span>
                                 </h4>
-                                <p class="text-xs text-slate-600 font-light mt-1">Estructuro y conceptualizo la idea del sitio web.</p>
+                                <p class="text-xs text-slate-600 font-light mt-1">Estructuro y conceptualizo la idea del sitio web con apoyo de Inteligencia Artificial.</p>
                                 <div id="diagram-detail-1" class="text-xs text-indigo-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-indigo-100/50 hidden">
                                     Aprovecho la potencia de la Inteligencia Artificial como copiloto creativo. Escribo prompts optimizados para estructurar el mapa de navegación, planificar la experiencia del usuario (UX) ideal y definir los objetivos funcionales del software antes de escribir el código.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Paso 2 -->
                         <div onclick="selectDiagramStep(2)" id="diagram-step-2" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                2
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">2</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-pink-600 transition-colors">
                                     Prototipado Visual en Figma & Canva <span class="text-xs bg-pink-100 text-pink-700 font-semibold px-2 py-0.5 rounded">Fase 2</span>
                                 </h4>
-                                <p class="text-xs text-slate-600 font-light mt-1">Diseño la interfaz de usuario (UI) y paletas aesthetic.</p>
+                                <p class="text-xs text-slate-600 font-light mt-1">Diseño la interfaz de usuario (UI) y paletas aesthetic personalizadas.</p>
                                 <div id="diagram-detail-2" class="text-xs text-pink-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-pink-100/50 hidden">
-                                    Creo la maqueta visual de fidelidad extrema en Figma. Defino paletas de colores personalizadas (como mis fondos retro, cuadriculados y estrellas) y tipografías que transmitan confianza, logrando un diseño visual único y profesional antes de programar.
+                                    Creo la maqueta visual de fidelidad extrema en Figma. Defino paletas de colores personalizadas y tipografías que transmitan confianza, logrando un diseño visual único y profesional antes de programar.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Paso 3 -->
                         <div onclick="selectDiagramStep(3)" id="diagram-step-3" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                3
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">3</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-blue-600 transition-colors">
                                     Estructuramiento Semántico & Tailwind CSS <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded">Fase 3</span>
                                 </h4>
                                 <p class="text-xs text-slate-600 font-light mt-1">Escribo la estructura del sitio y aseguro adaptabilidad móvil.</p>
                                 <div id="diagram-detail-3" class="text-xs text-blue-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-blue-100/50 hidden">
-                                    Traduzco los bocetos a código limpio. Utilizo HTML5 semántico para una estructura sólida y Tailwind CSS para estilización atómica ultra-rápida. Mi código garantiza una fluidez absoluta sin píxeles rotos en cualquier pantalla (celulares, tablets o computadoras).
+                                    Traduzco los bocetos a código limpio. Utilizo HTML5 semántico para una estructura sólida y Tailwind CSS para estilización atómica ultra-rápida en cualquier pantalla.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Paso 4 -->
                         <div onclick="selectDiagramStep(4)" id="diagram-step-4" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                4
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">4</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-yellow-600 transition-colors">
                                     Lógica Interactiva & APIs con JavaScript <span class="text-xs bg-yellow-100 text-yellow-700 font-semibold px-2 py-0.5 rounded">Fase 4</span>
                                 </h4>
                                 <p class="text-xs text-slate-600 font-light mt-1">Añado interactividad, juegos y manipulación de datos en tiempo real.</p>
                                 <div id="diagram-detail-4" class="text-xs text-yellow-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-yellow-100/50 hidden">
-                                    Doy vida a la página usando JavaScript moderno (ES6+). Programo la interactividad de las pestañas de búsqueda, sistemas de filtros en tiempo real, mecánicas interactivas de minijuegos e integración de servicios externos de correo.
+                                    Doy vida a la página usando JavaScript moderno (ES6+). Programo la interactividad de las pestañas de búsqueda, sistemas de filtros en tiempo real y minijuegos.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Paso 5 -->
                         <div onclick="selectDiagramStep(5)" id="diagram-step-5" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                5
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">5</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-purple-600 transition-colors">
                                     Git & GitHub Codespaces <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded">Fase 5</span>
                                 </h4>
                                 <p class="text-xs text-slate-600 font-light mt-1">Controlo versiones del código en la nube de forma segura.</p>
                                 <div id="diagram-detail-5" class="text-xs text-purple-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-purple-100/50 hidden">
-                                    Utilizo GitHub Codespaces para trabajar con un editor en la nube de manera ágil y fluida. Organizo los cambios mediante ramas lógicas de Git y subo commits limpios al repositorio remoto para un control de versiones impecable.
+                                    Utilizo GitHub Codespaces para trabajar con un editor en la nube de manera ágil y fluida. Organizo los cambios mediante ramas lógicas de Git.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Paso 6 -->
                         <div onclick="selectDiagramStep(6)" id="diagram-step-6" class="md:col-span-12 flex flex-col md:flex-row items-start gap-4 p-4 rounded-2xl border-2 border-transparent bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-xs group/step">
-                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">
-                                6
-                            </div>
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0 shadow-inner group-hover/step:scale-105 transition-transform">6</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-slate-800 text-base flex items-center gap-2 group-hover/step:text-emerald-600 transition-colors">
                                     Despliegue Continuo en Vercel o GitHub Pages <span class="text-xs bg-emerald-100 text-emerald-700 font-semibold px-2 py-0.5 rounded">Fase 6</span>
                                 </h4>
                                 <p class="text-xs text-slate-600 font-light mt-1">Publico la web en vivo para todo el mundo.</p>
                                 <div id="diagram-detail-6" class="text-xs text-emerald-950 font-light leading-relaxed mt-2.5 pt-2.5 border-t border-emerald-100/50 hidden">
-                                    Conecto mi repositorio a Vercel o GitHub Pages para compilar y desplegar la web de forma automática en pocos segundos. Realizo auditorías de optimización para asegurar que cargue de forma instantánea en cualquier parte del mundo.
+                                    Conecto mi repositorio a Vercel o GitHub Pages para compilar y desplegar la web de forma automática en pocos segundos.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Detalle de ayuda -->
                     <p class="text-xs text-slate-400 italic text-center mt-4 select-none">💡 Haz clic en cada fase de mi flujo para ver un desglose detallado de mis técnicas.</p>
                 </div>
 
-                <!-- CONTENEDOR 2: SIMULADOR DE EXCEL (Inicialmente oculto) -->
+                <!-- CONTENEDOR 2: SIMULADOR DE EXCEL -->
                 <div id="process-excel-container" class="hidden">
                     <div class="bg-white rounded-xl shadow-md border border-slate-300 overflow-hidden flex flex-col select-none max-w-full text-slate-800">
-                        <!-- Barra superior de Excel (Título del archivo) -->
                         <div class="bg-emerald-800 text-white px-4 py-2 flex items-center justify-between text-xs font-medium">
                             <div class="flex items-center space-x-2">
                                 <span class="tracking-wide font-semibold">Procesos_Luizabeth_Contreras.xlsx</span>
@@ -1658,30 +1656,23 @@
                             </div>
                         </div>
 
-                        <!-- Barra de menú rápida de Excel -->
                         <div class="bg-slate-100 border-b border-slate-300 p-2 flex flex-wrap items-center gap-3 text-xs text-slate-700">
-                            <!-- Fuente -->
                             <div class="flex items-center space-x-1 border-r border-slate-300 pr-3">
                                 <span class="font-bold text-[11px] text-slate-500">Calibri</span>
                                 <span class="text-slate-400">|</span>
                                 <span class="font-bold text-[11px] text-slate-500">11</span>
                             </div>
-
-                            <!-- Estilos texto -->
                             <div class="flex items-center space-x-2 border-r border-slate-300 pr-3">
                                 <button class="font-bold hover:text-emerald-600" title="Negrita">N</button>
                                 <button class="italic hover:text-emerald-600" title="Cursiva">K</button>
                                 <button class="underline hover:text-emerald-600" title="Subrayado">S</button>
                             </div>
-
-                            <!-- f(x) Formula Display -->
                             <div class="flex items-center space-x-1 text-slate-500 italic font-serif pl-2">
                                 <span class="text-xs">fx:</span>
                                 <input id="formula-bar-input" type="text" readonly class="bg-slate-50 border border-slate-200 rounded px-2 py-0.5 text-xs font-mono text-slate-700 w-52" value="=SUMA(D3:D7)">
                             </div>
                         </div>
 
-                        <!-- Tabla Excel -->
                         <div class="overflow-x-auto">
                             <table class="w-full border-collapse table-fixed text-[12px] min-w-[650px]">
                                 <thead>
@@ -1694,9 +1685,7 @@
                                         <th class="w-28 border border-slate-300 text-center py-1 text-[10px] bg-slate-200">E</th>
                                     </tr>
                                 </thead>
-                                <tbody id="excel-body">
-                                    <!-- Se puebla mediante Javascript -->
-                                </tbody>
+                                <tbody id="excel-body"></tbody>
                                 <tfoot>
                                     <tr class="font-bold text-slate-950 bg-emerald-50">
                                         <td class="border border-slate-300 bg-slate-100 text-[10px] text-center">9</td>
@@ -1711,7 +1700,6 @@
                             </table>
                         </div>
 
-                        <!-- Pestañas de la Hoja -->
                         <div class="bg-slate-100 border-t border-slate-300 p-1.5 flex items-center justify-between text-[11px] font-semibold">
                             <div class="flex items-center space-x-1">
                                 <button id="sheet-python-btn" onclick="switchExcelSheet('python')" class="px-3 py-1 bg-white border border-slate-300 border-b-white rounded-t-md text-emerald-700 flex items-center space-x-1 shadow-sm">
@@ -1726,6 +1714,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            `,
+            'Blog': `
+                <div class="group border border-gray-100 bg-white shadow-xs rounded-2xl p-6 hover:shadow-md hover:border-amber-200 transition-all">
+                    <div class="flex items-center space-x-2 text-sm text-gray-800 mb-1.5">
+                        <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-xs">B</div>
+                        <span class="text-xs text-gray-500">luizabeth.neocities.org</span>
+                    </div>
+                    <h3 class="text-[20px] google-blue google-blue-hover leading-tight font-semibold mb-2">
+                        <a href="https://luizabeth.neocities.org" target="_blank" rel="noopener noreferrer">Mi Blog Personal en Neocities ✨</a>
+                    </h3>
+                    <p class="text-[14px] google-dark-gray leading-relaxed font-light">
+                        Un espacio creativo armado de forma independiente en Neocities donde documento mis experimentos web, diseños retro y aprendizajes de programación.
+                    </p>
                 </div>
             `
         };
@@ -1751,8 +1753,6 @@
         };
 
         // --- SISTEMA INTERACTIVO DE JUEGOS ---
-
-        // Configuración y datos del juego de adivinar libros
         const bookQuestions = [
             {
                 clue: "Un joven descubre que es un semidiós, hijo de Poseidón, y emprende un viaje para recuperar el rayo maestro de Zeus.",
@@ -1781,7 +1781,6 @@
             }
         ];
 
-        // Configuración y datos del juego de adivinar artistas musicales
         const musicQuestions = [
             {
                 clue: "Artista famosísima por sus múltiples eras musicales, letras narrativas profundas y éxitos globales masivos como 'Love Story', 'Blank Space' y 'Shake It Off'.",
@@ -1810,11 +1809,9 @@
             }
         ];
 
-        // Estado de sesión de los juegos
         let bookGameState = { score: 0, currentRound: 0 };
         let musicGameState = { score: 0, currentRound: 0 };
 
-        // Inicializador del juego de libros
         function initBookGame() {
             const clueEl = document.getElementById('book-clue');
             const optionsEl = document.getElementById('book-options');
@@ -1824,7 +1821,6 @@
 
             if (!clueEl || !optionsEl || !scoreEl || !roundEl) return;
 
-            // Comprobar si ya terminamos la ronda de 5 preguntas
             if (bookGameState.currentRound >= bookQuestions.length) {
                 clueEl.innerHTML = `🏆 ¡Juego completado!<br>Tu puntuación final es de <strong>${bookGameState.score} / 5</strong>`;
                 optionsEl.innerHTML = `
@@ -1852,14 +1848,12 @@
             });
         }
 
-        // Evaluar selección del juego de libros
         function selectBookOption(answer, clickedBtn) {
             const current = bookQuestions[bookGameState.currentRound];
             const feedbackEl = document.getElementById('book-feedback');
             const optionsEl = document.getElementById('book-options');
             if (!feedbackEl || !optionsEl) return;
 
-            // Desactivar todos los botones
             const buttons = optionsEl.querySelectorAll('button');
             buttons.forEach(btn => btn.disabled = true);
 
@@ -1873,7 +1867,6 @@
                 feedbackEl.className = "text-xs font-bold text-rose-600";
                 clickedBtn.className = "w-full text-left p-3.5 border border-rose-500 bg-rose-50 text-rose-800 rounded-xl font-bold transition-all";
                 
-                // Resaltar el botón correcto
                 buttons.forEach(btn => {
                     if (btn.textContent === current.correct) {
                         btn.className = "w-full text-left p-3.5 border border-emerald-500 bg-emerald-50 text-emerald-800 rounded-xl font-bold transition-all";
@@ -1881,21 +1874,18 @@
                 });
             }
 
-            // Avanzar automáticamente en 2 segundos
             setTimeout(() => {
                 bookGameState.currentRound++;
                 initBookGame();
             }, 2200);
         }
 
-        // Reiniciar el juego de libros
         function resetBookGame() {
             bookGameState = { score: 0, currentRound: 0 };
             initBookGame();
             showToast('¡Juego de Libros reiniciado! 📚');
         }
 
-        // Inicializador del juego de música
         function initMusicGame() {
             const clueEl = document.getElementById('music-clue');
             const optionsEl = document.getElementById('music-options');
@@ -1905,7 +1895,6 @@
 
             if (!clueEl || !optionsEl || !scoreEl || !roundEl) return;
 
-            // Comprobar fin de ronda
             if (musicGameState.currentRound >= musicQuestions.length) {
                 clueEl.innerHTML = `🏆 ¡Juego completado!<br>Tu puntuación final es de <strong>${musicGameState.score} / 5</strong>`;
                 optionsEl.innerHTML = `
@@ -1933,7 +1922,6 @@
             });
         }
 
-        // Evaluar selección del juego de música
         function selectMusicOption(answer, clickedBtn) {
             const current = musicQuestions[musicGameState.currentRound];
             const feedbackEl = document.getElementById('music-feedback');
@@ -1966,7 +1954,6 @@
             }, 2200);
         }
 
-        // Reiniciar el juego de música
         function resetMusicGame() {
             musicGameState = { score: 0, currentRound: 0 };
             initMusicGame();
@@ -1976,11 +1963,10 @@
         // --- MANEJO EXCEL ESTÁTICO ---
         let currentExcelSheet = 'python';
 
-        // Helper to render the excel spreadsheet elements inside the Process tab
         function renderExcelSimulator() {
             const body = document.getElementById('excel-body');
             const totalCell = document.getElementById('excel-total-cell');
-            if (!body) return; // Prevent issues if not in Processes tab
+            if (!body) return;
 
             const data = excelData[currentExcelSheet];
             let html = '';
@@ -2003,7 +1989,6 @@
                 `;
             });
 
-            // Fill with empty lines to mimic a real Sheet (up to row 8)
             for (let i = data.length + 3; i <= 8; i++) {
                 html += `
                     <tr class="h-8">
@@ -2021,11 +2006,8 @@
             totalCell.innerText = totalHoras;
         }
 
-        // Action when user changes sheet tab in Excel
         function switchExcelSheet(sheetName) {
             currentExcelSheet = sheetName;
-            
-            // Adjust styles of Excel buttons
             const buttons = {
                 python: document.getElementById('sheet-python-btn'),
                 freelance: document.getElementById('sheet-freelance-btn'),
@@ -2043,8 +2025,6 @@
             }
 
             renderExcelSimulator();
-            
-            // Show formula inside formula bar
             const formulaBar = document.getElementById('formula-bar-input');
             if (formulaBar) {
                 const len = excelData[sheetName].length;
@@ -2052,7 +2032,6 @@
             }
         }
 
-        // Alternar vistas en el proceso de trabajo (Diagrama / Excel)
         function toggleProcessView(view) {
             const diagContainer = document.getElementById('process-diagram-container');
             const excelContainer = document.getElementById('process-excel-container');
@@ -2066,7 +2045,7 @@
                 excelContainer.classList.add('hidden');
                 btnDiag.className = "flex-grow py-2 px-3 rounded-lg text-xs font-bold transition-all bg-white text-blue-600 shadow-xs";
                 btnExcel.className = "flex-grow py-2 px-3 rounded-lg text-xs font-bold transition-all text-gray-600 hover:text-gray-900";
-                selectDiagramStep(1); // Auto resaltar fase 1
+                selectDiagramStep(1);
             } else {
                 diagContainer.classList.add('hidden');
                 excelContainer.classList.remove('hidden');
@@ -2076,7 +2055,6 @@
             }
         }
 
-        // Selección de fases en el diagrama de flujo interactivo
         function selectDiagramStep(stepNum) {
             for (let i = 1; i <= 6; i++) {
                 const detail = document.getElementById('diagram-detail-' + i);
@@ -2104,15 +2082,12 @@
             }
         }
 
-        // Active tab states
         let currentTab = 'Todo';
 
-        // Render current search results based on routing state
         function renderDatabaseResults() {
             const container = document.getElementById('results-container');
             container.innerHTML = searchDatabase[currentTab] || '';
 
-            // Mantener todos los proyectos en orden numérico y retirar el Data Analyst antiguo.
             if (currentTab === 'Proyectos') {
                 const projectList = container.querySelector('.space-y-4');
                 if (projectList) {
@@ -2127,14 +2102,12 @@
                     .forEach((project) => container.appendChild(project));
             }
             
-            // Adjust search stats text based on tab
             const countResults = {
-                'Todo': 9, 'Proyectos': 6, 'Estudios': 3, 'Contacto': 1, 'SobreMí': 3, 'Servicios': 5, 'StackTecnológico': 1, 'ProcesodeTrabajo': 2, 'Blog': 2
+                'Todo': 9, 'Proyectos': 19, 'Estudios': 3, 'Contacto': 1, 'SobreMí': 3, 'Servicios': 5, 'StackTecnológico': 1, 'ProcesodeTrabajo': 2, 'Blog': 1
             };
             const currentCount = countResults[currentTab] || 1;
             document.getElementById('search-stats').textContent = `Aproximadamente ${currentCount} resultados destacados (0.02 segundos)`;
 
-            // DYNAMIC HIDING OF RELATED SEARCHES: Only show when tab is "Todo"
             const relatedSection = document.getElementById('related-searches-section');
             if (currentTab === 'Todo') {
                 relatedSection.style.display = 'block';
@@ -2142,54 +2115,21 @@
                 relatedSection.style.display = 'none';
             }
 
-            // Si navegamos a Proyectos, inicializamos los dos juegos interactivos
             if (currentTab === 'Proyectos') {
                 initBookGame();
                 initMusicGame();
             }
 
-            // Si navegamos a Proceso de Trabajo, inicializamos el primer paso del diagrama
             if (currentTab === 'ProcesodeTrabajo') {
                 setTimeout(() => {
                     selectDiagramStep(1);
                 }, 50);
             }
 
-            // If we navigated to Blog, initialize Carousel
-            if (currentTab === 'Blog') {
-                currentCarouselSlideIndex = 0;
-                updateCarouselView();
-            }
+            // Enlazar eventos hover a las tarjetas recién renderizadas
+            attachHoverPreviews();
         }
 
-        // CAROUSEL LOGIC
-        let currentCarouselSlideIndex = 0;
-        const totalCarouselSlides = 3;
-
-        function updateCarouselView() {
-            for (let i = 0; i < totalCarouselSlides; i++) {
-                const slide = document.getElementById('carousel-slide-' + i);
-                if (slide) {
-                    if (i === currentCarouselSlideIndex) {
-                        slide.classList.remove('hidden');
-                    } else {
-                        slide.classList.add('hidden');
-                    }
-                }
-            }
-        }
-
-        function changeCarouselSlide(direction) {
-            currentCarouselSlideIndex += direction;
-            if (currentCarouselSlideIndex >= totalCarouselSlides) {
-                currentCarouselSlideIndex = 0;
-            } else if (currentCarouselSlideIndex < 0) {
-                currentCarouselSlideIndex = totalCarouselSlides - 1;
-            }
-            updateCarouselView();
-        }
-
-        // Handle navigation to specified tab
         function navigateToTab(tabId) {
             const formattedTabId = 'tab-' + tabId;
             const tabButton = document.getElementById(formattedTabId);
@@ -2198,7 +2138,6 @@
             }
         }
 
-        // Active Tabs styling toggle & router action
         function setActiveTab(button) {
             const tabs = document.querySelectorAll('.nav-tab');
             tabs.forEach(tab => {
@@ -2208,29 +2147,26 @@
             button.classList.remove('border-transparent');
             button.classList.add('border-blue-500', 'text-blue-600', 'font-medium', 'font-semibold');
             
-            // Get tab name (removing spaces for key mapping)
             const tabName = button.id.replace('tab-', '');
             currentTab = tabName;
             
-            // Auto update search filter text in input depending on clicked tab
             if (tabName !== 'Todo') {
                 updateSearchText(button.textContent.trim());
             } else {
                 updateSearchText('proyectos de programación');
             }
 
+            previewTabInfo(tabName);
             renderDatabaseResults();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Routing from related search buttons
         function handleRelatedSearch(searchText, targetTab) {
             updateSearchText(searchText);
             navigateToTab(targetTab);
             showToast(`Redirigiendo a la sección de: ${targetTab}`);
         }
 
-        // Update search text from external links
         function updateSearchText(val) {
             const input = document.getElementById('search-input');
             input.value = val;
@@ -2238,19 +2174,16 @@
             document.getElementById('current-filter-badge').textContent = val;
         }
 
-        // Clear search input
         function clearSearch() {
             const input = document.getElementById('search-input');
             input.value = '';
             input.focus();
         }
 
-        // Reset search to original state
         function resetSearch() {
             navigateToTab('Todo');
         }
 
-        // Form Submission logic
         function handleSearchSubmit(event) {
             event.preventDefault();
             const val = document.getElementById('search-input').value;
@@ -2261,7 +2194,6 @@
             }
         }
 
-        // Toast Notification System
         function showToast(message) {
             const toast = document.getElementById('custom-toast');
             const toastMsg = document.getElementById('toast-message');
@@ -2276,7 +2208,6 @@
             }, 3000);
         }
 
-        // Contact simulated submission handler (Sends actual email via local Mail client redirection)
         function submitFormSimulated(event) {
             event.preventDefault();
             const inputs = event.target.querySelectorAll('input, textarea');
@@ -2284,7 +2215,6 @@
             const email = inputs[1].value;
             const msg = inputs[2].value;
 
-            // Create subject and email body pre-populated for secure redirection
             const subject = encodeURIComponent(`Contacto Portfolio - Propuesta de ${name}`);
             const body = encodeURIComponent(`Hola Luizabeth,\n\nHas recibido un nuevo mensaje desde tu Portfolio de Búsqueda:\n\nNombre: ${name}\nCorreo de contacto: ${email}\n\nMensaje:\n${msg}\n\n---\nEnviado desde el Ecosistema Digital de Luizabeth Contreras.`);
             
@@ -2294,11 +2224,9 @@
             event.target.reset();
         }
 
-        // Voice Search Modal Handlers
         function openVoiceSearch() {
             const modal = document.getElementById('voice-modal');
             modal.classList.remove('opacity-0', 'pointer-events-none');
-            // Simulate voice recognition close after 4s
             setTimeout(() => {
                 closeVoiceSearch();
             }, 4000);
@@ -2308,7 +2236,6 @@
             modal.classList.add('opacity-0', 'pointer-events-none');
         }
 
-        // Lens Search Modal Handlers
         function openLensSearch() {
             const modal = document.getElementById('lens-modal');
             modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -2318,7 +2245,6 @@
             modal.classList.add('opacity-0', 'pointer-events-none');
         }
 
-        // INTERACTIVE MODAL ACTIONS (FOOTER)
         function openFooterModal(modalKey) {
             const modal = document.getElementById('modal-' + modalKey);
             if (modal) {
@@ -2332,139 +2258,10 @@
             }
         }
 
-        // Initialize Results
         window.onload = function() {
             renderDatabaseResults();
+            previewTabInfo('Todo');
         };
-        // ==========================================
-// LÓGICA DE TRADUCCIÓN (ES / EN / IT)
-// ==========================================
-
-// Idioma por defecto
-let currentLang = 'es';
-
-// Diccionario de textos en los tres idiomas
-const translations = {
-    es: {
-        badge: "ES",
-        placeholder: "Buscar en Luizabeth o escribir una URL",
-        stats: "Aproximadamente 9 resultados destacados (0.02 segundos)",
-        bannerText: 'Estás viendo el ecosistema digital de <span class="italic font-semibold text-blue-600 hover:underline cursor-pointer" onclick="navigateToTab(\'SobreMí\')">Luizabeth</span>',
-        filterText: "Búsqueda filtrada actualmente para:",
-        relatedTitle: "Búsquedas relacionadas",
-        footerCountry: "Venezuela",
-        footerActivity: "• Basado en tu actividad anterior",
-        tabTodo: "Todo",
-        tabProyectos: "Proyectos",
-        tabEstudios: "Estudios",
-        tabContacto: "Contacto",
-        tabSobreMi: "Sobre mí"
-    },
-    en: {
-        badge: "EN",
-        placeholder: "Search Luizabeth or type a URL",
-        stats: "About 9 featured results (0.02 seconds)",
-        bannerText: 'You are viewing the digital ecosystem of <span class="italic font-semibold text-blue-600 hover:underline cursor-pointer" onclick="navigateToTab(\'SobreMí\')">Luizabeth</span>',
-        filterText: "Currently filtered search for:",
-        relatedTitle: "Related searches",
-        footerCountry: "Venezuela",
-        footerActivity: "• Based on your past activity",
-        tabTodo: "All",
-        tabProyectos: "Projects",
-        tabEstudios: "Studies",
-        tabContacto: "Contact",
-        tabSobreMi: "About me"
-    },
-    it: {
-        badge: "IT",
-        placeholder: "Cerca su Luizabeth o digita un URL",
-        stats: "Circa 9 risultati in evidenza (0.02 secondi)",
-        bannerText: 'Stai visualizzando l\'ecosistema digitale di <span class="italic font-semibold text-blue-600 hover:underline cursor-pointer" onclick="navigateToTab(\'SobreMí\')">Luizabeth</span>',
-        filterText: "Ricerca attualmente filtrata per:",
-        relatedTitle: "Ricerche correlate",
-        footerCountry: "Venezuela",
-        footerActivity: "• In base alla tua attività precedente",
-        tabTodo: "Tutti",
-        tabProyectos: "Progetti",
-        tabEstudios: "Studi",
-        tabContacto: "Contatti",
-        tabSobreMi: "Su di me"
-    }
-};
-
-// Función para abrir/cerrar el menú desplegable
-function toggleLangMenu(event) {
-    event.stopPropagation(); // Evita que el evento cierre el menú inmediatamente
-    const dropdown = document.getElementById('lang-dropdown');
-    dropdown.classList.toggle('hidden');
-}
-
-// Función principal para cambiar el idioma
-function changeLanguage(langCode) {
-    currentLang = langCode;
-    const data = translations[langCode];
-
-    // 1. Actualizar el indicador visual del botón (ES, EN o IT)
-    document.getElementById('current-lang-text').innerText = data.badge;
-
-    // 2. Traducir el placeholder del campo de búsqueda
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) searchInput.placeholder = data.placeholder;
-
-    // 3. Traducir textos estadísticos y títulos
-    const searchStats = document.getElementById('search-stats');
-    if (searchStats) searchStats.innerText = data.stats;
-
-    const relatedHeading = document.getElementById('related-searches-section')?.querySelector('h2');
-    if (relatedHeading) relatedHeading.innerText = data.relatedTitle;
-
-    // 4. Traducir el Banner de Información de Luizabeth
-    const bannerContainer = document.querySelector('.bg-\\[\\#f8f9fa\\]');
-    if (bannerContainer) {
-        const firstP = bannerContainer.querySelector('p:nth-child(1)');
-        if (firstP) firstP.innerHTML = data.bannerText;
-
-        const secondP = bannerContainer.querySelector('p:nth-child(2)');
-        const currentFilterBadge = document.getElementById('current-filter-badge');
-        if (secondP && currentFilterBadge) {
-            secondP.innerHTML = `${data.filterText} ${currentFilterBadge.outerHTML}`;
-        }
-    }
-
-    // 5. Traducir las pestañas de navegación (Tabs)
-    if (document.getElementById('tab-Todo')) document.getElementById('tab-Todo').innerText = data.tabTodo;
-    if (document.getElementById('tab-Proyectos')) document.getElementById('tab-Proyectos').innerText = data.tabProyectos;
-    if (document.getElementById('tab-Estudios')) document.getElementById('tab-Estudios').innerText = data.tabEstudios;
-    if (document.getElementById('tab-Contacto')) document.getElementById('tab-Contacto').innerText = data.tabContacto;
-    if (document.getElementById('tab-SobreMí')) document.getElementById('tab-SobreMí').innerText = data.tabSobreMi;
-
-    // 6. Traducir el Footer (Ubicación y actividad)
-    const footerLocation = document.querySelector('footer div:nth-child(1)');
-    if (footerLocation) {
-        const spans = footerLocation.querySelectorAll('span');
-        if (spans.length >= 4) {
-            spans[1].innerText = data.footerCountry; // "Venezuela"
-            spans[2].innerText = data.footerActivity; // "• Basado en tu actividad..."
-        }
-    }
-
-    // Ocultar el menú una vez seleccionado el idioma
-    document.getElementById('lang-dropdown').classList.add('hidden');
-
-    // OPCIONAL: Si deseas que las tarjetas de proyectos guardadas en tu "base de datos" simulada
-    // de JavaScript también cambien de idioma, podrías adaptar la función `renderDatabaseResults()` 
-    // para que lea el valor de `currentLang`.
-}
-
-// Cerrar el menú desplegable automáticamente si el usuario hace clic fuera de él
-document.addEventListener('click', function(event) {
-    const dropdown = document.getElementById('lang-dropdown');
-    const button = document.getElementById('lang-menu-btn');
-    
-    if (dropdown && !dropdown.classList.contains('hidden') && event.target !== button && !button.contains(event.target)) {
-        dropdown.classList.add('hidden');
-    }
-});
     </script>
 </body>
 </html>
